@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My portfolio</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-header">
+        <a class="navbar-brand" href="#">
+            <i class="fab fa-github"></i> LevrikM | Portfolio
+        </a>
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="https://github.com/LevrikM" target="_blank">Go to profile</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="https://github.com/LevrikM?tab=repositories" target="_blank">Open all
+                        repositories</a>
+                </li>
+                <li class="nav-item">
+                    <button id="toggleDarkModeButton" class="btn btn-link nav-link">
+                        <i id="toggleDarkModeIcon" class="fas fa-adjust"></i>
+                    </button>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container text-center">
+        <img class="avatar" src="https://avatars.githubusercontent.com/u/48616642?v=4" alt="Profile Picture">
+        <h1 id="namePlaceholder">Krasnoboky Mykhailo</h1>
+        <p>Student of Zhytomyr Polytechnic State University, student of IT-STEP Computer Academy.</p>
+
+        <h2>Public repositories on GitHub</h2>
+
+        <div id="repos" class="row"></div>
+
+        <div class="text-center mt-3">
+            <button id="loadMoreButton" class="btn btn-primary">Load More</button>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <a class="btn btn-primary contact-button" href="https://t.me/xwkwx" target="_blank">
+                        <i class="fab fa-telegram"></i> Telegram
+                    </a>
+                    <span>Email: <a href="mailto:levroemail@gmail.com">levroemail@gmail.com</a></span>
+                    <p class="mt-2">&copy; 2023 LevrikM. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
