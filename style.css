@@ -26,6 +26,10 @@ body {
     text-align: center;
 }
 
+hr{
+    border-top: 1px solid rgb(180, 180, 180);
+}
+
 .contact-button {
     margin-right: 10px;
 }
@@ -46,6 +50,15 @@ body {
     color: #fff;
 }
 
+.dark-mode hr {
+    border-top: 1px solid rgb(175, 165, 165);
+}
+
+
+.dark-mode {
+    color: #fff
+}
+
 #toggleDarkModeButton {
     border: none;
     background-color: transparent;
@@ -54,7 +67,7 @@ body {
 }
 
 #toggleDarkModeButton:hover {
-    color: #000;
+    color: #757575;
 }
 
 .fixed-header {
@@ -65,6 +78,39 @@ body {
     z-index: 9999;
     background-color: #fff;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.spinner {
+    width: 40px;
+    height: 40px;
+    position: relative;
+    margin: 0 auto;
+    animation: spin 1s linear infinite;
+}
+
+.spinner:before {
+    content: '';
+    box-sizing: border-box;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 30px;
+    height: 30px;
+    margin-top: -15px;
+    margin-left: -15px;
+    border-radius: 50%;
+    border: 3px solid #ccc;
+    border-top-color: #888;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
 }
 
 @media (min-width: 992px) {
