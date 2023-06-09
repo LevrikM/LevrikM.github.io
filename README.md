@@ -16,11 +16,13 @@ This website serves as a personal portfolio for showcasing my GitHub repositorie
 - Load more button to fetch additional repositories.
 - Toggle dark mode functionality.
 - Responsive design for optimal viewing on different devices.
+- Ability to change page language
+- Saves dark mode and language state
 
 ## Usage
-To view the website locally, you can follow these steps:
+You can visit [my portfolio page](https://levrikm.github.io/) or to view the website locally, you can follow these steps:
 1. Clone the repository: `git clone https://github.com/LevrikM/LevrikM.github.io.git`
-2. Open the `index.html` file in a web browser.
+2. Open the `index.html` file in a web browser.  
 
 ## License
 Feel free to explore the code and customize it according to your requirements!
