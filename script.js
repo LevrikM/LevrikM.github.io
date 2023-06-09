@@ -39,6 +39,15 @@ $(document).ready(function () {
     var toggleDarkModeButton = $("#toggleDarkModeButton");
     var toggleDarkModeIcon = $("#toggleDarkModeIcon");
 
+    if (darkModeEnabled) {
+        $("body").addClass("dark-mode");
+        toggleDarkModeIcon.removeClass("fa-adjust").addClass("fa-sun");
+        
+    } else {
+        $("body").removeClass("dark-mode");
+        toggleDarkModeIcon.removeClass("fa-sun").addClass("fa-adjust");
+    }
+
     function showLoadingAnimation() {
         loadingSpinner.show();
         repos.hide();
