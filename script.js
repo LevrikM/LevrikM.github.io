@@ -7,6 +7,13 @@ var translations = {
         openRepositories: "Open all repositories",
         goToProfile: "Go to profile",
         description: "Bio:",
+        myStatistic: "My statistic:",
+        backButton: "Back",
+        detailLanguage: "Coding language: ",
+        detailStars: "Stars",
+        detailForks: "Forks",
+        detailReadme: "Info of repo from ReadMe.md",
+
     },
     ua: {
         name: 'Краснобокий Михайло',
@@ -16,6 +23,13 @@ var translations = {
         openRepositories: "Відкрити всі репозиторії",
         goToProfile: "Перейти до профілю",
         description: "Біо:",
+        myStatistic: "Моя статистика:",
+        backButton: "Повернутись",
+        detailLanguage: "Мова програмування",
+        detailStars: "Зірок",
+        detailForks: "Розвітлень",
+        detailReadme: "Інформація про репозиторій з ReadMe.md",
+
     },
     ru: {
         name: 'Краснобокий Михаил',
@@ -25,6 +39,13 @@ var translations = {
         openRepositories: "Открыть все репозитории",
         goToProfile: "Перейти в профиль",
         description: "Био:",
+        myStatistic: "Моя статистика:",
+        backButton: "Вернуться",
+        detailLanguage: "Язык программирования",
+        detailStars: "Звезд",
+        detailForks: "Веток",
+        detailReadme: "Информация про репозиторий с ReadMe.md",
+
     }
 };
 
@@ -73,13 +94,14 @@ $(document).ready(function () {
             dataType: "json"
         }).then(function (data) {
             $.each(data, function (index, repo) {
-                var repoCard = $('<div class="col-md-4 repo-card">');
+                var repoCard = $('<div class="col-md-4 repo-card ccc">').attr('data-repo', repo.name);
                 var card = $('<div class="card">');
                 var cardBody = $('<div class="card-body">');
-                var repoLink = $('<a>').attr('href', repo.html_url).attr('target', '_blank').text(repo.name);
+                // var repoLink = $('<a>').attr('href', repo.html_url).attr('target', '_blank').text(repo.name);
+                var repoName = $('<h5>').css("color", "#1E90FF").text(repo.name)
                 var repoDescription = $('<p>').text(repo.description);
 
-                cardBody.append(repoLink);
+                cardBody.append(repoName);
                 cardBody.append(repoDescription);
                 card.append(cardBody);
                 repoCard.append(card);
@@ -163,4 +185,70 @@ $(document).ready(function () {
         localStorage.setItem("selectedLanguage", selectedLanguage);
         updateTexts();
     });
+
+    $(document).on("click", ".repo-card", function () {
+        var repoName = $(this).data("repo");
+        var repositoryDetails = $("#repositoryDetails");
+        var repos = $("#repos");
+        var loadMoreButton = $("#loadMoreButton");
+        repos.css('display', 'none');
+        loadMoreButton.css('display', 'none');
+        repositoryDetails.css('display', 'block');
+        repositoryDetails.html("");
+    
+        var translation = translations[selectedLanguage] || translations.en;
+        var backButton = $('<button class="btn btn-primary">').text(translation.backButton).attr('data-trans', "backButton");
+        backButton.click(function () {
+            repositoryDetails.css('display', 'none');
+            repos.css('display', 'flex');
+            loadMoreButton.css('display', 'inline-block');
+            $("#publicRepOnGitHub").css("display", "block");
+        });
+    
+        $.ajax({
+            url: "https://api.github.com/repos/LevrikM/" + repoName,
+            dataType: "json"
+        }).then(function (data) {
+            var repoName = data.name;
+            var repoDescription = data.description;
+            var repoLanguage = data.language;
+            var repoStars = data.stargazers_count;
+            var repoForks = data.forks_count;
+    
+            var repoDetails = $('<div>');
+            repoDetails.append($('<a>').attr('href', data.html_url).attr('target', '_blank').text(repoName).css("font-size", "20px"));
+            repoDetails.append($('<p>').text(repoDescription));
+            if(repoLanguage != null)    repoDetails.append($('<p>').text(translation.detailLanguage + ": " + repoLanguage));
+            repoDetails.append($('<p>').text(translation.detailStars + ": " + repoStars));
+            repoDetails.append($('<p>').text(translation.detailForks + ": " + repoForks));
+
+            
+            repositoryDetails.append(repoDetails);
+            repositoryDetails.append(backButton);
+            $("#publicRepOnGitHub").css("display", "none");
+            $.ajax({
+                url: "https://api.github.com/repos/LevrikM/" + repoName + "/readme",
+                headers: {
+                    Accept: "application/vnd.github.v3.html"
+                }
+            }).then(function (readmeData) {
+                repositoryDetails.append($('<h2 class="mt-5">').text(translation.detailReadme));
+
+                var readmeContent = readmeData; 
+
+                var readmeContainer = $('<div class="readme-container">');
+                readmeContainer.css("padding", "55px");
+                readmeContainer.css("list-style", "none");
+
+                readmeContainer.html(readmeContent);
+                repositoryDetails.append(readmeContainer);
+            }).catch(function (error) {
+                console.log('Помилка при отриманні README.md', error);
+            });
+        });
+    
+        repositoryDetails.append(backButton);
+    });
+    
 });
+

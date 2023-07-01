@@ -20,7 +20,7 @@ body {
 }
 
 .footer {
-    margin-top: 30px;
+    margin-top: 10px;
     padding: 20px;
     background-color: #f8f9fa;
     text-align: center;
@@ -57,6 +57,16 @@ hr{
 
 .dark-mode {
     color: #fff
+}
+
+.repo-card{
+    transition: all 0.5s ease-out;
+}
+
+.repo-card:hover{
+    transition: all 0.5s ease-out;
+    transform: scale(1.1);
+    cursor: pointer;
 }
 
 #toggleDarkModeButton {
@@ -104,6 +114,7 @@ hr{
     animation: spin 1s linear infinite;
 }
 
+
 @keyframes spin {
     0% {
         transform: rotate(0deg);
@@ -121,4 +132,18 @@ hr{
     .navbar .nav-item {
         margin-left: 10px;
     }
+}
+
+
+.readme-container{
+    background-color: whitesmoke;
+    border-radius: 30px;
+    border: 1px solid black;
+}
+
+.dark-mode .readme-container{
+    background-color: rgba(0, 0, 0, 0.3);
+    border: 1px solid whitesmoke;
+
+    
 }

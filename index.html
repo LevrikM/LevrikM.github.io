@@ -13,10 +13,11 @@
 
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-header">
-        <a class="navbar-brand" href="#">
+        <a class="navbar-brand" href="/">
             <i class="fab fa-github"></i>
             <span data-trans="portfolioTitle">LevrikM | Portfolio</span>
         </a>
+
 
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -61,21 +62,27 @@
         <p>Student of Zhytomyr Polytechnic State University, student of IT-STEP Computer Academy.</p>
         <hr>
         <h2 id="publicRepOnGitHub" class="mb-lg-5">Public repositories on GitHub</h2>
-
+        
         <div id="loadingSpinner" class="text-center">
             <div class="spinner"></div>
             <p class="mt-2">Loading data...</p>
         </div>
+        
+        <div id="repos" class="row">
 
-        <div id="repos" class="row"></div>
-
+            
+        </div>
+        <div id="repositoryDetails"></div>
+        
         <div class="text-center mt-3">
             <button id="loadMoreButton" class="btn btn-primary">
                 
                 Load More
-            </button>
+        </button>
         </div>
         <hr class="line">
+        <h1 data-trans="myStatistic">My statistic</h1>
+        <iframe class="mt-4" src="http://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=LevrikM&theme=ayu_mirage" frameborder="0" scrolling="no" width="100%" height="200"></iframe>
     </div>
     <footer class="footer">
         <div class="container">
