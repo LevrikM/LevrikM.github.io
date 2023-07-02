@@ -90,7 +90,10 @@ $(document).ready(function () {
                 per_page: repoCount,
                 page: Math.floor(repoOffset / repoCount) + 1
             },
-            dataType: "json"
+            dataType: "json",
+            headers: {
+                "Authorization": "Bearer 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"
+            }
         }).then(function (data) {
             $.each(data, function (index, repo) {
                 var repoCard = $('<div class="col-md-4 repo-card ccc">').attr('data-repo', repo.name);
@@ -123,7 +126,10 @@ $(document).ready(function () {
     function fetchUserData() {
         $.ajax({
             url: "https://api.github.com/users/LevrikM",
-            dataType: "json"
+            dataType: "json",
+            headers: {
+                "Authorization": "Bearer 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"
+            }
         }).then(function (data) {
             var login = data.login;
             $("#login").append(login);
@@ -210,7 +216,10 @@ $(document).ready(function () {
         repositoryDetails.hide();
         $.ajax({
             url: "https://api.github.com/repos/LevrikM/" + repoName,
-            dataType: "json"
+            dataType: "json",
+            headers: {
+                "Authorization": "Bearer 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"
+            }
         }).then(function (data) {
             var repoName = data.name;
             var repoDescription = data.description;
@@ -232,6 +241,7 @@ $(document).ready(function () {
             $.ajax({
                 url: "https://api.github.com/repos/LevrikM/" + repoName + "/readme",
                 headers: {
+                    "Authorization": "Bearer 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",
                     Accept: "application/vnd.github.v3.html"
                 }
             }).then(function (readmeData) {
