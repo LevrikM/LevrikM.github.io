@@ -71,16 +71,15 @@ $(document).ready(function () {
 
     function showLoadingAnimation() {
         loadingSpinner.show();
-        repos.hide();
     }
 
     function hideLoadingAnimation() {
         loadingSpinner.hide();
-        repos.show();
     }
 
     function fetchRepositories() {
         showLoadingAnimation();
+        repos.hide();
 
         $.ajax({
             url: "https://api.github.com/users/LevrikM/repos",
@@ -116,6 +115,8 @@ $(document).ready(function () {
             }
 
             hideLoadingAnimation();
+            repos.show();
+
         });
     }
 
@@ -187,24 +188,26 @@ $(document).ready(function () {
     });
 
     $(document).on("click", ".repo-card", function () {
+
         var repoName = $(this).data("repo");
         var repositoryDetails = $("#repositoryDetails");
         var repos = $("#repos");
         var loadMoreButton = $("#loadMoreButton");
-        repos.css('display', 'none');
-        loadMoreButton.css('display', 'none');
-        repositoryDetails.css('display', 'block');
+        repos.hide();
+        loadMoreButton.hide();
+        repositoryDetails.show();
         repositoryDetails.html("");
     
         var translation = translations[selectedLanguage] || translations.en;
         var backButton = $('<button class="btn btn-primary">').text(translation.backButton).attr('data-trans', "backButton");
         backButton.click(function () {
-            repositoryDetails.css('display', 'none');
-            repos.css('display', 'flex');
-            loadMoreButton.css('display', 'inline-block');
-            $("#publicRepOnGitHub").css("display", "block");
+            repositoryDetails.hide();
+            repos.show();
+            loadMoreButton.show()
+            $("#publicRepOnGitHub").show();
         });
-    
+        showLoadingAnimation();
+        repositoryDetails.hide();
         $.ajax({
             url: "https://api.github.com/repos/LevrikM/" + repoName,
             dataType: "json"
@@ -225,7 +228,7 @@ $(document).ready(function () {
             
             repositoryDetails.append(repoDetails);
             repositoryDetails.append(backButton);
-            $("#publicRepOnGitHub").css("display", "none");
+            $("#publicRepOnGitHub").hide();
             $.ajax({
                 url: "https://api.github.com/repos/LevrikM/" + repoName + "/readme",
                 headers: {
@@ -238,15 +241,15 @@ $(document).ready(function () {
 
                 var readmeContainer = $('<div class="readme-container">');
                 readmeContainer.css("padding", "55px");
-                readmeContainer.css("list-style", "none");
 
                 readmeContainer.html(readmeContent);
                 repositoryDetails.append(readmeContainer);
             }).catch(function (error) {
-                console.log('Помилка при отриманні README.md', error);
+                console.log('Error in loading ReadMe.md', error);
             });
+            hideLoadingAnimation();
+            repositoryDetails.show();
         });
-    
         repositoryDetails.append(backButton);
     });
     
