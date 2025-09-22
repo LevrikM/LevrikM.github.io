@@ -1,6 +1,7 @@
 var translations = {
     en: {
         name: 'Krasnoboky Mykhailo',
+        whoIAM: 'Software Engineer with a foundation from Zhytomyr Polytechnic State University and practical training from IT-STEP Academy.',
         loadMore: 'Load More',
         publicRepOnGitHub: 'Public repositories on GitHub',
         portfolioTitle: "LevrikM | Portfolio",
@@ -13,10 +14,25 @@ var translations = {
         detailStars: "Stars",
         detailForks: "Forks",
         detailReadme: "Info of repo from ReadMe.md",
+        assistantNotes: "Notes",
+        assistantTodos: "To-Do",
+        assistantShortcuts: "Shortcuts",
+        assistantSnippets: "Snippets",
+        assistantClose: "Close",
+        assistantNotesPlaceholder: "Write your notes...",
+        assistantSnippetsPlaceholder: "Save your code snippets...",
+        assistantTodosPlaceholder: "Add a task...",
+        assistantTitle: "Assistant (beta)",
+        assistantSafe: "Everything is saved locally",
+        mainForDevelop: "Main resources for developers",
+        development: "Development",
+        tools: "Tools",
+        learning: "Learning"
 
     },
     ua: {
         name: 'Краснобокий Михайло',
+        whoIAM: 'Програміст з основами з Житомирського політехнічного університету та практичною підготовкою в IT-STEP Academy.',
         loadMore: 'Завантажити ще',
         publicRepOnGitHub: 'Публічні репозиторії на GitHub',
         portfolioTitle: "LevrikM | Портфоліо",
@@ -29,10 +45,24 @@ var translations = {
         detailStars: "Зірок",
         detailForks: "Розвітлень",
         detailReadme: "Інформація про репозиторій з ReadMe.md",
-
+        assistantNotes: "Нотатки",
+        assistantTodos: "Список",
+        assistantShortcuts: "Посилання",
+        assistantSnippets: "Код",
+        assistantClose: "Закрити",
+        assistantNotesPlaceholder: "Пиши свої ідеї тут...",
+        assistantSnippetsPlaceholder: "Тут можна зберегти шматки коду...",
+        assistantTodosPlaceholder: "Додати завдання...",
+        assistantTitle: "Помічник (бета)",
+        assistantSafe: "Все зберігається локально",
+        mainForDevelop: "Основні ресурси для розробників",
+        development: "Розробка",
+        tools: "Інструменти",
+        learning: "Навчання"
     },
     ru: {
         name: 'Краснобокий Михаил',
+        whoIAM: 'Программист с основами из Житомирского политехнического университета и практической подготовкой в IT-STEP Academy.',
         loadMore: 'Загрузить еще',
         publicRepOnGitHub: 'Публичные репозитории на GitHub',
         portfolioTitle: "LevrikM | Портфолио",
@@ -45,7 +75,20 @@ var translations = {
         detailStars: "Звезд",
         detailForks: "Веток",
         detailReadme: "Информация про репозиторий с ReadMe.md",
-
+        assistantNotes: "Заметки",
+        assistantTodos: "Список дел",
+        assistantShortcuts: "Ссылки",
+        assistantSnippets: "Код",
+        assistantClose: "Закрыть",
+        assistantNotesPlaceholder: "Пиши свои идеи здесь...",
+        assistantSnippetsPlaceholder: "Здесь можно хранить куски кода...",
+        assistantTodosPlaceholder: "Добавить задачу...",
+        assistantTitle: "Помощник (бета)",
+        assistantSafe: "Всё сохраняется локально",
+        mainForDevelop: "Основные ресурсы для разработчиков",
+        development: "Разработка",
+        tools: "Инструменты",
+        learning: "Обучение"
     }
 };
 
