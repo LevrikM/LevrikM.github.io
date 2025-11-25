@@ -8,115 +8,182 @@
     <link rel="icon" type="image/png" href="assets/favicon.png">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <script src="/assets/js/assistant-widget.js" defer></script>
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-header">
-        <a class="navbar-brand" href="/">
-            <i class="fab fa-github"></i>
-            <span data-trans="portfolioTitle">LevrikM | Portfolio</span>
-        </a>
+    <div id="preloader">
+        <div class="loader-content">
+            <div class="spinner-grow text-orange mb-3" role="status" style="width: 3rem; height: 3rem;"></div>
+            <h5 class="font-weight-bold animate-pulse">Loading System...</h5>
+        </div>
+    </div>
+    <div class="background-glow"></div>
 
+    <nav class="navbar navbar-expand-lg fixed-top glass-nav">
+        <div class="container">
+            <a class="navbar-brand font-weight-bold" href="/">
+                <i class="fab fa-github mr-2"></i>
+                <span data-trans="portfolioTitle">LevrikM</span>
+            </a>
 
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation" style="border: none; outline: none;">
+                <span style="color: var(--text-main); font-size: 1.5rem;">
+                    <i class="fas fa-bars"></i>
+                </span>
+            </button>
 
-        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav align-items-center">
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://github.com/LevrikM?tab=repositories" target="_blank">
+                            <span data-trans="openRepositories">Repositories</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://github.com/LevrikM" target="_blank">
+                            <span data-trans="goToProfile">Profile</span>
+                        </a>
+                    </li>
+                    
+                    <li class="nav-item">
+                        <button id="toggleDarkModeButton" class="btn btn-link nav-link">
+                            <i id="toggleDarkModeIcon" class="fas fa-adjust"></i>
+                        </button>
+                    </li>
 
-
-            <button data-trans="assistantTitle" id="assistant-toggle" class="assistant-btn">Assistant </button>
-
-            <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a class="nav-link" href="https://github.com/LevrikM?tab=repositories" target="_blank">
-                        <span data-trans="openRepositories">Open all repositories</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="https://github.com/LevrikM" target="_blank">
-                        <span data-trans="goToProfile">Go to profile</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <button id="toggleDarkModeButton" class="btn btn-link nav-link">
-                        <i id="toggleDarkModeIcon" class="fas fa-adjust"></i>
-                    </button>
-                </li>
-                <li class="nav-item">
-                    <select id="languageSelect" class="form-control">
-                      <option value="en">EN</option>
-                      <option value="ua">UA</option>
-                      <option value="ru">RU</option>
-                    </select>
-                </li>                                  
-            </ul>
-        </div>    
+                    <button data-trans="assistantTitle" id="assistant-toggle" class="assistant-btn ml-3">Assistant</button>
+                    
+                    <li class="nav-item ml-3">
+                        <select id="languageSelect" class="custom-lang-select">
+                            <option value="en">EN</option>
+                            <option value="ua">UA</option>
+                            <option value="ru">RU</option>
+                        </select>
+                    </li>
+                </ul>
+            </div>
+        </div>
     </nav>
 
-    <div class="container text-center">
-        <img class="avatar" src="https://avatars.githubusercontent.com/u/48616642?v=4" alt="Profile Picture">
-        <h1 id="namePlaceholder">Krasnoboky Mykhailo</h1>
-        <h4 id="login" style="color: rgb(173, 173, 173)">
-            <i class="fa-brands fa-square-github"></i>
+    <div class="container hero-section text-center">
+        <div class="avatar-container mb-4">
+            <img class="avatar" src="https://avatars.githubusercontent.com/u/48616642?v=4" alt="Profile Picture">
+            <div class="status-badge"><i class="fas fa-code"></i></div>
+        </div>
+        
+        <h1 id="namePlaceholder" class="display-4 font-weight-bolder mb-2">Krasnoboky Mykhailo</h1>
+        <h4 id="login" class="text-muted mb-4 font-weight-light">
+            <i class="fa-brands fa-square-github mr-2"></i>
         </h4>
-        <h5 data-trans="description">Description:</h5>
-        <p data-trans="whoIAM">Student of Zhytomyr Polytechnic State University, student of IT-STEP Computer Academy.</p>
-        <hr>
-        <h2 id="publicRepOnGitHub" class="mb-lg-5">Public repositories on GitHub</h2>
+        
+        <div class="glass-card p-4 mx-auto mb-5" style="max-width: 700px;">
+            <h5 data-trans="description" class="text-uppercase text-orange mb-2" style="font-size: 0.8rem; letter-spacing: 2px;">About Me</h5>
+            <p data-trans="whoIAM" class="lead mb-0">Student of Zhytomyr Polytechnic State University, student of IT-STEP Computer Academy.</p>
+        </div>
+    </div>
+
+    <div class="container">
+        
+        <div class="featured-project-wrapper mb-5">
+            <div class="card border-0 overflow-hidden text-white" style="background: linear-gradient(145deg, #1a1a1a, #0f0f0f); border-radius: 20px; box-shadow: 0 20px 50px rgba(0,0,0,0.5);">
+                <div class="row no-gutters align-items-center">
+                    <div class="col-lg-5 position-relative overflow-hidden" style="min-height: 300px; background: black;">
+                        <img src="./assets/launcher_preview.png" alt="Rust Launcher" class="img-fluid w-100 h-100" style="object-fit: cover; opacity: 0.8;">
+                    </div>
+                    <div class="col-lg-7 p-5">
+                        <div class="d-flex align-items-center mb-3">
+                            <span class="badge badge-danger mr-2">GAME UTILITY</span>
+                            <span data-trans="unofficialLauncher" class="text-uppercase text-muted" style="letter-spacing: 2px; font-size: 0.8rem;">LAUNCHER</span>
+                        </div>
+                        <h2 class="font-weight-bold mb-3">RUST <span class="text-orange">LAUNCHER</span></h2>
+                        <p data-trans="rustLauncherDescription" class="text-secondary mb-4">
+                            Custom client for the game Rust. Enhanced performance, quick access to modded servers, and a user-friendly interface.
+                        </p>
+                        <a href="./rust-launcher-web/index.html" class="btn btn-orange btn-lg shadow-glow">
+                            <span data-trans="goToSite">Explore Project</span> <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="mb-5">
+            <h6 class="section-title text-center mb-4">Technology Stack</h6>
+            <div class="d-flex justify-content-center flex-wrap" style="gap: 15px;">
+                 <div class="tech-item" title="HTML5"><i class="fab fa-html5"></i></div>
+                 <div class="tech-item" title="CSS3"><i class="fab fa-css3-alt"></i></div>
+                 <div class="tech-item" title="JS"><i class="fab fa-js"></i></div>
+                 <div class="tech-item" title="TS"><i class="fas fa-code"></i></div>
+                 <div class="tech-item" title="React"><i class="fab fa-react"></i></div>
+                 <div class="tech-item" title="Vue"><i class="fab fa-vuejs"></i></div>
+                 <div class="tech-item" title="Node"><i class="fab fa-node-js"></i></div>
+                 <div class="tech-item" title="Python"><i class="fab fa-python"></i></div>
+                 <div class="tech-item" title="C#"><i class="fas fa-terminal"></i></div>
+                 <div class="tech-item" title="C++"><i class="fas fa-microchip"></i></div>
+                 <div class="tech-item" title="Git"><i class="fab fa-git-alt"></i></div>
+            </div>
+        </div>
+
+        <hr class="glass-divider my-5">
+
+        <h2 id="publicRepOnGitHub" class="section-heading text-center mb-5">Public Repositories</h2>
         
         <div id="loadingSpinner" class="text-center">
-            <div class="spinner"></div>
-            <p class="mt-2">Loading data...</p>
+            <div class="spinner-grow text-orange" role="status"></div>
+            <p class="mt-2 text-muted">Accessing GitHub API...</p>
         </div>
         
-        <div id="repos" class="row">
-
-            
-        </div>
+        <div id="repos" class="row"></div>
+        
         <div id="repositoryDetails"></div>
         
-        <div class="text-center mt-3">
-            <button id="loadMoreButton" class="btn btn-primary">
-                
+        <div class="text-center mt-5 mb-5">
+            <button id="loadMoreButton" class="btn btn-outline-primary btn-lg rounded-pill px-5">
                 Load More
-        </button>
+            </button>
         </div>
-        <hr class="line">
-        <h1 data-trans="myStatistics">My statistics</h1>
-        <div class="row mt-4">
-            <iframe class="mt-4" src="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=LevrikM&theme=ayu_mirage" frameborder="0" scrolling="no" width="100%" height="200"></iframe>
-            <div class="col-md-6 mt-4">
-                <iframe src="https://github-profile-summary-cards.vercel.app/api/cards/repos-per-language?username=LevrikM&theme=ayu_mirage" frameborder="0" scrolling="no" width="100%" height="200"></iframe>
+
+        <h6 class="section-title text-center mb-4" data-trans="myStatistics">Statistics</h6>
+        <div class="row">
+            <div class="col-md-12 mb-4">
+                <div class="glass-card p-2 stats-container">
+                    <iframe src="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=LevrikM&theme=ayu_mirage&bg_color=00000000&hide_border=true" frameborder="0" scrolling="no" width="100%" height="200"></iframe>
+                </div>
             </div>
-            <div class="col-md-6 mt-4">
-                <iframe src="https://github-profile-summary-cards.vercel.app/api/cards/most-commit-language?username=LevrikM&theme=ayu_mirage" frameborder="0" scrolling="no" width="100%" height="200"></iframe>
+            <div class="col-md-6 mb-4">
+                <div class="glass-card p-2">
+                    <iframe src="https://github-profile-summary-cards.vercel.app/api/cards/repos-per-language?username=LevrikM&theme=ayu_mirage&bg_color=00000000&hide_border=true" frameborder="0" scrolling="no" width="100%" height="200"></iframe>
+                </div>
+            </div>
+            <div class="col-md-6 mb-4">
+                <div class="glass-card p-2">
+                    <iframe src="https://github-profile-summary-cards.vercel.app/api/cards/most-commit-language?username=LevrikM&theme=ayu_mirage&bg_color=00000000&hide_border=true" frameborder="0" scrolling="no" width="100%" height="200"></iframe>
+                </div>
             </div>
         </div>
 
     </div>
-    <footer class="footer">
-        <div class="container">
-            <div class="row">
-                <div class="col">
-                    <a class="btn btn-primary contact-button mb-2" href="https://t.me/xwkwx" target="_blank">
-                        <i class="fab fa-telegram"></i> Telegram
-                    </a>
-                    <br>
-                    <span>Email: <a href="mailto:levroemail@gmail.com">levroemail@gmail.com</a></span>
-                    <p class="mt-2">&copy; <script>document.write(new Date().getFullYear())</script> LevrikM. All rights reserved.</p>
-                </div>
+    
+    <footer class="glass-footer mt-5">
+        <div class="container text-center py-4">
+            <div class="d-flex justify-content-center mb-3">
+                <a class="social-btn" href="https://t.me/xwkwx" target="_blank"><i class="fab fa-telegram"></i></a>
+                <a class="social-btn ml-3" href="mailto:levroemail@gmail.com"><i class="fas fa-envelope"></i></a>
             </div>
+            <p class="text-muted mb-0">&copy; <script>document.write(new Date().getFullYear())</script> LevrikM</p>
         </div>
     </footer>
+
+    <button id="scrollToTopBtn" title="Go to top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
     <script src="script.js"></script>
 </body>
-
 </html>

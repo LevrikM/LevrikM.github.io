@@ -1,3 +1,17 @@
+document.body.classList.add('loading-state');
+
+window.addEventListener("load", function() {
+    setTimeout(function() {
+        document.body.classList.add('loaded');
+        document.body.classList.remove('loading-state');
+        
+        setTimeout(function() {
+            var preloader = document.getElementById('preloader');
+            if(preloader) preloader.remove();
+        }, 1000);
+    }, 1000); 
+});
+
 var translations = {
     en: {
         name: 'Krasnoboky Mykhailo',
@@ -27,8 +41,12 @@ var translations = {
         mainForDevelop: "Main resources for developers",
         development: "Development",
         tools: "Tools",
-        learning: "Learning"
-
+        learning: "Learning",
+        rustLauncherDescription: "Custom client for launching the game Rust. Enhanced performance, quick access to settings, and a user-friendly interface.",
+        goToSite: "Explore Project",
+        unofficialLauncher: "Unofficial Launcher",
+        loadingReadme: "Loading README...",
+        noReadme: "No README.md found for this repository."
     },
     ua: {
         name: 'Краснобокий Михайло',
@@ -58,7 +76,12 @@ var translations = {
         mainForDevelop: "Основні ресурси для розробників",
         development: "Розробка",
         tools: "Інструменти",
-        learning: "Навчання"
+        learning: "Навчання",
+        rustLauncherDescription: "Кастомний клієнт для запуску гри Rust. Покращена продуктивність, швидкий доступ до налаштувань та зручний інтерфейс.",
+        goToSite: "Перейти на проект",
+        unofficialLauncher: "Неофіційний лаунчер",
+        loadingReadme: "Завантаження README...",
+        noReadme: "README.md не знайдено."
     },
     ru: {
         name: 'Краснобокий Михаил',
@@ -88,7 +111,12 @@ var translations = {
         mainForDevelop: "Основные ресурсы для разработчиков",
         development: "Разработка",
         tools: "Инструменты",
-        learning: "Обучение"
+        learning: "Обучение",
+        rustLauncherDescription: "Кастомный клиент для запуска игры Rust. Улучшенная производительность, быстрый доступ к настройкам и удобный интерфейс.",
+        goToSite: "Перейти на проект",
+        unofficialLauncher: "Неофициальный лаунчер",
+        loadingReadme: "Загрузка README...",
+        noReadme: "README.md не найден."
     }
 };
 
@@ -97,16 +125,17 @@ $(document).ready(function () {
     var selectedLanguage = localStorage.getItem("selectedLanguage") || "en";
     var repoCount = 6;
     var repoOffset = 0;
+    
     var loadingSpinner = $("#loadingSpinner");
-    var repos = $("#repos");
+    var reposContainer = $("#repos");
     var loadMoreButton = $("#loadMoreButton");
     var toggleDarkModeButton = $("#toggleDarkModeButton");
     var toggleDarkModeIcon = $("#toggleDarkModeIcon");
+    var repositoryDetails = $("#repositoryDetails");
 
     if (darkModeEnabled) {
         $("body").addClass("dark-mode");
         toggleDarkModeIcon.removeClass("fa-adjust").addClass("fa-sun");
-        
     } else {
         $("body").removeClass("dark-mode");
         toggleDarkModeIcon.removeClass("fa-sun").addClass("fa-adjust");
@@ -120,54 +149,92 @@ $(document).ready(function () {
         loadingSpinner.hide();
     }
 
-    function fetchRepositories() {
-        showLoadingAnimation();
-        repos.hide();
+    function renderRepos(reposList) {
+        $.each(reposList, function (index, repo) {
+            var repoCard = $('<div class="col-md-4 repo-card mb-4">');
+            
+           
+            repoCard.data('repo', repo);
 
+            var card = $('<div class="card">');
+            var cardBody = $('<div class="card-body">');
+            
+            var repoName = $('<h5>').text(repo.name);
+            var repoDescription = $('<p>').text(repo.description || "No description provided");
+
+            cardBody.append(repoName);
+            cardBody.append(repoDescription);
+            card.append(cardBody);
+            repoCard.append(card);
+            reposContainer.append(repoCard);
+        });
+    }
+
+    function fetchRepositories() {
+        var sessionData = sessionStorage.getItem('githubRepos_LevrikM');
+        
+        if (sessionData && repoOffset === 0) {
+            console.log("Loading from cache");
+            var allRepos = JSON.parse(sessionData);
+            var slicedRepos = allRepos.slice(repoOffset, repoOffset + repoCount);
+            renderRepos(slicedRepos);
+            
+            repoOffset += repoCount;
+            if (repoOffset >= allRepos.length) loadMoreButton.hide();
+            else loadMoreButton.show();
+            
+            hideLoadingAnimation();
+            reposContainer.show();
+            return;
+        }
+
+        showLoadingAnimation();
+        
         $.ajax({
             url: "https://api.github.com/users/LevrikM/repos",
             data: {
                 type: "owner",
-                sort: "updated",
+                sort: "updated", 
                 direction: "desc",
-                per_page: repoCount,
-                page: Math.floor(repoOffset / repoCount) + 1
+                per_page: 100 
             },
             dataType: "json"
         }).then(function (data) {
-            $.each(data, function (index, repo) {
-                var repoCard = $('<div class="col-md-4 repo-card ccc">').attr('data-repo', repo.name);
-                var card = $('<div class="card">');
-                var cardBody = $('<div class="card-body">');
-                // var repoLink = $('<a>').attr('href', repo.html_url).attr('target', '_blank').text(repo.name);
-                var repoName = $('<h5>').css("color", "#1E90FF").text(repo.name)
-                var repoDescription = $('<p>').text(repo.description);
+            sessionStorage.setItem('githubRepos_LevrikM', JSON.stringify(data));
+            
+            if(repoOffset === 0) reposContainer.empty();
 
-                cardBody.append(repoName);
-                cardBody.append(repoDescription);
-                card.append(cardBody);
-                repoCard.append(card);
-                repos.append(repoCard);
-            });
+            var slicedRepos = data.slice(repoOffset, repoOffset + repoCount);
+            renderRepos(slicedRepos);
 
-            if (data.length === repoCount) {
-                repoOffset += repoCount;
-                loadMoreButton.show();
-            } else {
+            repoOffset += repoCount;
+            if (repoOffset >= data.length) {
                 loadMoreButton.hide();
+            } else {
+                loadMoreButton.show();
             }
 
             hideLoadingAnimation();
-            repos.show();
-
+            reposContainer.show();
+        }).catch(function(err) {
+            console.error("API Error", err);
+            hideLoadingAnimation();
+            reposContainer.html("<p class='text-danger'>Error loading repositories. API limit exceeded or network error.</p>").show();
         });
     }
 
     function fetchUserData() {
+        var cachedUser = sessionStorage.getItem('githubUser_LevrikM');
+        if(cachedUser) {
+            $("#login").append(JSON.parse(cachedUser).login);
+            return;
+        }
+
         $.ajax({
             url: "https://api.github.com/users/LevrikM",
             dataType: "json"
         }).then(function (data) {
+            sessionStorage.setItem('githubUser_LevrikM', JSON.stringify(data));
             var login = data.login;
             $("#login").append(login);
         });
@@ -216,8 +283,16 @@ $(document).ready(function () {
     initializeApp();
 
     loadMoreButton.click(function () {
-        showLoadingAnimation();
-        fetchRepositories();
+        var sessionData = sessionStorage.getItem('githubRepos_LevrikM');
+        if (sessionData) {
+            var allRepos = JSON.parse(sessionData);
+            var nextRepos = allRepos.slice(repoOffset, repoOffset + repoCount);
+            renderRepos(nextRepos);
+            repoOffset += repoCount;
+            if (repoOffset >= allRepos.length) loadMoreButton.hide();
+        } else {
+            fetchRepositories(); 
+        }
     });
 
     toggleDarkModeButton.click(function () {
@@ -230,71 +305,75 @@ $(document).ready(function () {
         updateTexts();
     });
 
-    $(document).on("click", ".repo-card", function () {
 
-        var repoName = $(this).data("repo");
-        var repositoryDetails = $("#repositoryDetails");
-        var repos = $("#repos");
-        var loadMoreButton = $("#loadMoreButton");
-        repos.hide();
-        loadMoreButton.hide();
-        repositoryDetails.show();
-        repositoryDetails.html("");
-    
+    $(document).on("click", ".repo-card", function () {
         var translation = translations[selectedLanguage] || translations.en;
-        var backButton = $('<button class="btn btn-primary">').text(translation.backButton).attr('data-trans', "backButton");
+        var repoData = $(this).data('repo');
+        
+        reposContainer.hide();
+        loadMoreButton.hide();
+        $("#publicRepOnGitHub").hide();
+        repositoryDetails.show().html(""); 
+    
+        var backButton = $('<button class="btn btn-orange mb-3">').text(translation.backButton);
         backButton.click(function () {
             repositoryDetails.hide();
-            repos.show();
-            loadMoreButton.show()
+            reposContainer.show();
+
+            var sessionData = sessionStorage.getItem('githubRepos_LevrikM');
+            if(sessionData && repoOffset < JSON.parse(sessionData).length) {
+                loadMoreButton.show();
+            } else if (!sessionData) {
+                 loadMoreButton.show();
+            }
             $("#publicRepOnGitHub").show();
         });
-        showLoadingAnimation();
-        repositoryDetails.hide();
-        $.ajax({
-            url: "https://api.github.com/repos/LevrikM/" + repoName,
-            dataType: "json"
-        }).then(function (data) {
-            var repoName = data.name;
-            var repoDescription = data.description;
-            var repoLanguage = data.language;
-            var repoStars = data.stargazers_count;
-            var repoForks = data.forks_count;
-    
-            var repoDetails = $('<div>');
-            repoDetails.append($('<a>').attr('href', data.html_url).attr('target', '_blank').text(repoName).css("font-size", "20px"));
-            repoDetails.append($('<p>').text(repoDescription));
-            if(repoLanguage != null)    repoDetails.append($('<p>').text(translation.detailLanguage + ": " + repoLanguage));
-            repoDetails.append($('<p>').text(translation.detailStars + ": " + repoStars));
-            repoDetails.append($('<p>').text(translation.detailForks + ": " + repoForks));
 
-            
-            repositoryDetails.append(repoDetails);
-            repositoryDetails.append(backButton);
-            $("#publicRepOnGitHub").hide();
-            $.ajax({
-                url: "https://api.github.com/repos/LevrikM/" + repoName + "/readme",
-                headers: {
-                    Accept: "application/vnd.github.v3.html"
-                }
-            }).then(function (readmeData) {
-                repositoryDetails.append($('<h2 class="mt-5">').text(translation.detailReadme));
+       
+        var repoDetails = $('<div>');
+        
+        repoDetails.append($('<a>').attr('href', repoData.html_url).attr('target', '_blank').text(repoData.name).css("font-size", "28px").css("font-weight", "bold").css("color", "#1E90FF"));
+        repoDetails.append($('<p class="mt-2 lead">').text(repoData.description));
+        
+        if(repoData.language) repoDetails.append($('<p>').html(`<strong>${translation.detailLanguage}:</strong> ${repoData.language}`));
+        
+        repoDetails.append($('<p>').html(`<i class="fas fa-star text-warning"></i> <strong>${translation.detailStars}:</strong> ${repoData.stargazers_count}`));
+        repoDetails.append($('<p>').html(`<i class="fas fa-code-branch"></i> <strong>${translation.detailForks}:</strong> ${repoData.forks_count}`));
 
-                var readmeContent = readmeData; 
-
-                var readmeContainer = $('<div class="readme-container">');
-                readmeContainer.css("padding", "55px");
-
-                readmeContainer.html(readmeContent);
-                repositoryDetails.append(readmeContainer);
-            }).catch(function (error) {
-                console.log('Error in loading ReadMe.md', error);
-            });
-            hideLoadingAnimation();
-            repositoryDetails.show();
-        });
         repositoryDetails.append(backButton);
+        repositoryDetails.append(repoDetails);
+        
+        var readmeContainer = $('<div class="readme-container mt-4">');
+        readmeContainer.html(`<div class="text-center py-5"><div class="spinner-border text-primary" role="status"></div><p>${translation.loadingReadme}</p></div>`);
+        repositoryDetails.append(readmeContainer);
+
+        var username = "LevrikM"; 
+        
+        $.ajax({
+            url: `https://api.github.com/repos/${username}/${repoData.name}/readme`,
+            headers: {
+                Accept: "application/vnd.github.v3.html"
+            }
+        }).then(function (readmeData) {
+            readmeContainer.html(readmeData);
+        }).catch(function (error) {
+            console.log('Readme load error', error);
+            readmeContainer.html(`<p class="text-muted text-center py-4">${translation.noReadme}</p>`);
+        });
     });
     
-});
+    // Scroll to Top
+    var scrollToTopBtn = $("#scrollToTopBtn");
+    $(window).scroll(function() {
+        if ($(window).scrollTop() > 300) {
+            scrollToTopBtn.fadeIn();
+        } else {
+            scrollToTopBtn.fadeOut();
+        }
+    });
 
+    scrollToTopBtn.click(function() {
+        $('html, body').animate({scrollTop : 0}, 800);
+        return false;
+    });
+});
