@@ -9,116 +9,8 @@ window.addEventListener("load", function() {
             var preloader = document.getElementById('preloader');
             if(preloader) preloader.remove();
         }, 1000);
-    }, 1000); 
+    }, 500); 
 });
-
-var translations = {
-    en: {
-        name: 'Krasnoboky Mykhailo',
-        whoIAM: 'Software Engineer with a foundation from Zhytomyr Polytechnic State University and practical training from IT-STEP Academy.',
-        loadMore: 'Load More',
-        publicRepOnGitHub: 'Public repositories on GitHub',
-        portfolioTitle: "LevrikM | Portfolio",
-        openRepositories: "Open all repositories",
-        goToProfile: "Go to profile",
-        description: "Bio:",
-        myStatistics: "My statistics:",
-        backButton: "Back",
-        detailLanguage: "Coding language: ",
-        detailStars: "Stars",
-        detailForks: "Forks",
-        detailReadme: "Info of repo from ReadMe.md",
-        assistantNotes: "Notes",
-        assistantTodos: "To-Do",
-        assistantShortcuts: "Shortcuts",
-        assistantSnippets: "Snippets",
-        assistantClose: "Close",
-        assistantNotesPlaceholder: "Write your notes...",
-        assistantSnippetsPlaceholder: "Save your code snippets...",
-        assistantTodosPlaceholder: "Add a task...",
-        assistantTitle: "Assistant (beta)",
-        assistantSafe: "Everything is saved locally",
-        mainForDevelop: "Main resources for developers",
-        development: "Development",
-        tools: "Tools",
-        learning: "Learning",
-        rustLauncherDescription: "Custom client for launching the game Rust. Enhanced performance, quick access to settings, and a user-friendly interface.",
-        goToSite: "Explore Project",
-        unofficialLauncher: "Unofficial Launcher",
-        loadingReadme: "Loading README...",
-        noReadme: "No README.md found for this repository."
-    },
-    ua: {
-        name: 'Краснобокий Михайло',
-        whoIAM: 'Програміст з основами з Житомирського політехнічного університету та практичною підготовкою в IT-STEP Academy.',
-        loadMore: 'Завантажити ще',
-        publicRepOnGitHub: 'Публічні репозиторії на GitHub',
-        portfolioTitle: "LevrikM | Портфоліо",
-        openRepositories: "Відкрити всі репозиторії",
-        goToProfile: "Перейти до профілю",
-        description: "Біо:",
-        myStatistics: "Моя статистика:",
-        backButton: "Повернутись",
-        detailLanguage: "Мова програмування",
-        detailStars: "Зірок",
-        detailForks: "Розвітлень",
-        detailReadme: "Інформація про репозиторій з ReadMe.md",
-        assistantNotes: "Нотатки",
-        assistantTodos: "Список",
-        assistantShortcuts: "Посилання",
-        assistantSnippets: "Код",
-        assistantClose: "Закрити",
-        assistantNotesPlaceholder: "Пиши свої ідеї тут...",
-        assistantSnippetsPlaceholder: "Тут можна зберегти шматки коду...",
-        assistantTodosPlaceholder: "Додати завдання...",
-        assistantTitle: "Помічник (бета)",
-        assistantSafe: "Все зберігається локально",
-        mainForDevelop: "Основні ресурси для розробників",
-        development: "Розробка",
-        tools: "Інструменти",
-        learning: "Навчання",
-        rustLauncherDescription: "Кастомний клієнт для запуску гри Rust. Покращена продуктивність, швидкий доступ до налаштувань та зручний інтерфейс.",
-        goToSite: "Перейти на проект",
-        unofficialLauncher: "Неофіційний лаунчер",
-        loadingReadme: "Завантаження README...",
-        noReadme: "README.md не знайдено."
-    },
-    ru: {
-        name: 'Краснобокий Михаил',
-        whoIAM: 'Программист с основами из Житомирского политехнического университета и практической подготовкой в IT-STEP Academy.',
-        loadMore: 'Загрузить еще',
-        publicRepOnGitHub: 'Публичные репозитории на GitHub',
-        portfolioTitle: "LevrikM | Портфолио",
-        openRepositories: "Открыть все репозитории",
-        goToProfile: "Перейти в профиль",
-        description: "Био:",
-        myStatistics: "Моя статистика:",
-        backButton: "Вернуться",
-        detailLanguage: "Язык программирования",
-        detailStars: "Звезд",
-        detailForks: "Веток",
-        detailReadme: "Информация про репозиторий с ReadMe.md",
-        assistantNotes: "Заметки",
-        assistantTodos: "Список дел",
-        assistantShortcuts: "Ссылки",
-        assistantSnippets: "Код",
-        assistantClose: "Закрыть",
-        assistantNotesPlaceholder: "Пиши свои идеи здесь...",
-        assistantSnippetsPlaceholder: "Здесь можно хранить куски кода...",
-        assistantTodosPlaceholder: "Добавить задачу...",
-        assistantTitle: "Помощник (бета)",
-        assistantSafe: "Всё сохраняется локально",
-        mainForDevelop: "Основные ресурсы для разработчиков",
-        development: "Разработка",
-        tools: "Инструменты",
-        learning: "Обучение",
-        rustLauncherDescription: "Кастомный клиент для запуска игры Rust. Улучшенная производительность, быстрый доступ к настройкам и удобный интерфейс.",
-        goToSite: "Перейти на проект",
-        unofficialLauncher: "Неофициальный лаунчер",
-        loadingReadme: "Загрузка README...",
-        noReadme: "README.md не найден."
-    }
-};
 
 $(document).ready(function () {
     var darkModeEnabled = localStorage.getItem("darkModeEnabled") === "true";
@@ -133,6 +25,7 @@ $(document).ready(function () {
     var toggleDarkModeIcon = $("#toggleDarkModeIcon");
     var repositoryDetails = $("#repositoryDetails");
 
+    
     if (darkModeEnabled) {
         $("body").addClass("dark-mode");
         toggleDarkModeIcon.removeClass("fa-adjust").addClass("fa-sun");
@@ -148,6 +41,22 @@ $(document).ready(function () {
     function hideLoadingAnimation() {
         loadingSpinner.hide();
     }
+
+    // --- SCROLL REVEAL LOGIC ---
+    function reveal() {
+        var reveals = document.querySelectorAll(".reveal-on-scroll");
+        for (var i = 0; i < reveals.length; i++) {
+            var windowHeight = window.innerHeight;
+            var elementTop = reveals[i].getBoundingClientRect().top;
+            var elementVisible = 100; 
+
+            if (elementTop < windowHeight - elementVisible) {
+                reveals[i].classList.add("visible");
+            }
+        }
+    }
+    window.addEventListener("scroll", reveal);
+    reveal();
 
     function renderRepos(reposList) {
         $.each(reposList, function (index, repo) {
@@ -362,7 +271,6 @@ $(document).ready(function () {
         });
     });
     
-    // Scroll to Top
     var scrollToTopBtn = $("#scrollToTopBtn");
     $(window).scroll(function() {
         if ($(window).scrollTop() > 300) {

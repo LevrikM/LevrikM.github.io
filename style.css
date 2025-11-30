@@ -114,27 +114,53 @@ body {
 .text-orange { color: var(--primary-orange); }
 
 
+/* --- INFINITE SCROLL --- */
+.tech-scroller {
+    overflow: hidden;
+    width: 100%;
+    position: relative;
+    mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+}
+
+.tech-track {
+    display: flex;
+    gap: 20px;
+    width: max-content;
+    animation: scrollTech 20s linear infinite;
+    padding: 10px 0;
+}
+
 .tech-item {
     background: var(--card-bg);
     border: 1px solid var(--card-border);
     color: var(--text-muted);
-    width: 60px;
-    height: 60px;
+    width: 70px; 
+    height: 70px;
     display: flex;
     align-items: center;
     justify-content: center;
-    border-radius: 12px;
-    font-size: 1.8rem;
+    border-radius: 16px;
+    font-size: 2rem;
     transition: all 0.3s ease;
-    cursor: pointer;
-    box-shadow: 0 2px 5px var(--shadow-color);
-}
-.tech-item:hover {
-    transform: translateY(-5px);
-    border-color: var(--primary-orange);
-    color: var(--primary-orange);
+    flex-shrink: 0; 
 }
 
+
+.tech-scroller:hover .tech-track {
+    animation-play-state: paused;
+}
+
+.tech-item:hover {
+    border-color: var(--primary-orange);
+    color: var(--primary-orange);
+    transform: translateY(-5px) scale(1.1);
+    box-shadow: 0 5px 15px rgba(249,115,22,0.3);
+}
+
+@keyframes scrollTech {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); } 
+}
 
 .repo-card .card {
     background: var(--card-bg);
@@ -367,3 +393,118 @@ body.loading-state {
     outline: none;
     box-shadow: none;
 }
+
+
+/* --- RUST LAUNCHER STYLES --- */
+.rust-card-container {
+    position: relative;
+    border-radius: 20px;
+    z-index: 1;
+}
+
+.rust-glow-effect {
+    position: absolute;
+    top: -5px; left: -5px; right: -5px; bottom: -5px;
+    background: linear-gradient(45deg, #f97316, #ce422b, #000);
+    z-index: -1;
+    border-radius: 24px;
+    filter: blur(20px);
+    opacity: 0.6;
+    animation: glowPulse 4s infinite alternate;
+}
+
+@keyframes glowPulse {
+    0% { opacity: 0.4; filter: blur(15px); }
+    100% { opacity: 0.7; filter: blur(25px); }
+}
+
+.rust-card-body {
+    background: #0f0f0f; 
+    border-radius: 20px;
+}
+
+
+.preview-section {
+    min-height: 350px;
+    background: #000;
+}
+.launcher-img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+    opacity: 1;
+}
+
+
+.tech-badges-floating {
+    position: absolute;
+    bottom: 20px; left: 20px;
+    display: flex; gap: 10px;
+}
+
+
+.features-grid {
+    display: flex;
+    gap: 20px;
+}
+.feature-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+    font-size: 0.8rem;
+    color: var(--text-muted);
+}
+.feature-item i { font-size: 1.2rem; }
+
+
+.btn-play {
+    position: relative;
+    overflow: hidden;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.reveal-on-scroll {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
+}
+
+.reveal-on-scroll.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.rust-card-body {
+    transform-style: preserve-3d;
+    transform: perspective(1000px);
+}
+.launcher-img, .tech-badges-floating, .btn-play {
+    transform: translateZ(20px); 
+}
+
+
+.feature-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    padding: 10px;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+    border: 1px solid transparent;
+    flex: 1; 
+}
+
+.feature-item i {
+    font-size: 1.4rem;
+    transition: all 0.3s ease;
+}
+
+::-webkit-scrollbar { width: 6px;}
+::-webkit-scrollbar-track { background: rgba(255,255,255,0.05); }
+::-webkit-scrollbar-thumb { background: #3d2b02; border-radius: 3px; }

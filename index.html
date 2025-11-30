@@ -69,7 +69,7 @@
     </nav>
 
     <div class="container hero-section text-center">
-        <div class="avatar-container mb-4">
+        <div class="avatar-container mb-4 reveal-on-scroll">
             <img class="avatar" src="https://avatars.githubusercontent.com/u/48616642?v=4" alt="Profile Picture">
             <div class="status-badge"><i class="fas fa-code"></i></div>
         </div>
@@ -87,43 +87,80 @@
 
     <div class="container">
         
-        <div class="featured-project-wrapper mb-5">
-            <div class="card border-0 overflow-hidden text-white" style="background: linear-gradient(145deg, #1a1a1a, #0f0f0f); border-radius: 20px; box-shadow: 0 20px 50px rgba(0,0,0,0.5);">
-                <div class="row no-gutters align-items-center">
-                    <div class="col-lg-5 position-relative overflow-hidden" style="min-height: 300px; background: black;">
-                        <img src="https://rust-launcher.vercel.app/assets/launcher_preview.png" alt="Rust Launcher" class="img-fluid w-100 h-100" style="object-fit: cover; opacity: 0.8;">
-                    </div>
-                    <div class="col-lg-7 p-5">
-                        <div class="d-flex align-items-center mb-3">
-                            <span class="badge badge-danger mr-2">GAME UTILITY</span>
-                            <span data-trans="unofficialLauncher" class="text-uppercase text-muted" style="letter-spacing: 2px; font-size: 0.8rem;">LAUNCHER</span>
+        <div class="featured-project-wrapper mb-5 reveal-on-scroll">
+            <div class="rust-card-container">
+                <div class="rust-glow-effect"></div>
+                
+                <div class="card border-0 overflow-hidden text-white rust-card-body" data-tilt data-tilt-max="2" data-tilt-speed="5055" data-tilt-glare data-tilt-max-glare="0.04">
+                    <div class="row no-gutters h-100">
+                        <div class="col-lg-6 position-relative overflow-hidden preview-section">
+                            <div class="img-overlay"></div>
+                            <img src="https://rust-launcher.vercel.app/assets/launcher_preview.png" alt="Rust Launcher Interface" class="launcher-img">
                         </div>
-                        <h2 class="font-weight-bold mb-3">RUST <span class="text-orange">LAUNCHER</span></h2>
-                        <p data-trans="rustLauncherDescription" class="text-secondary mb-4">
-                            Custom client for the game Rust. Enhanced performance, quick access to modded servers, and a user-friendly interface.
-                        </p>
-                        <a href="https://rust-launcher.vercel.app/" class="btn btn-orange btn-lg shadow-glow">
-                            <span data-trans="goToSite">Explore Project</span> <i class="fas fa-arrow-right ml-2"></i>
-                        </a>
+                        
+                        <div class="col-lg-6 p-4 p-lg-5 d-flex flex-column justify-content-center position-relative z-index-1">
+                            <div class="d-flex align-items-center mb-3">
+                                <span class="badge badge-danger mr-2">GAME UTILITY</span>
+                                <span data-trans="unofficialLauncher" class="text-uppercase text-muted small-spacing">Unofficial Launcher</span>
+                            </div>
+                            
+                            <h2 class="display-5 font-weight-bold mb-3">
+                                RUST <span class="text-orange glitch-effect">LAUNCHER</span>
+                            </h2>
+                            
+                            <p data-trans="rustLauncherDescription" class="text-secondary mb-4 description-text">
+                                Custom client for the game Rust. Enhanced performance, quick access to modded servers, and a user-friendly interface.
+                            </p>
+
+                            <div class="features-grid mb-4">
+                                <div class="feature-item">
+                                    <i class="fas fa-bolt text-orange"></i>
+                                    <span>Fast Load</span>
+                                </div>
+                                <div class="feature-item">
+                                    <i class="fas fa-shield-alt text-orange"></i>
+                                    <span>Secure</span>
+                                </div>
+                                <div class="feature-item">
+                                    <i class="fas fa-memory text-orange"></i>
+                                    <span>Low RAM</span>
+                                </div>
+                            </div>
+
+                            <a href="https://rust-launcher.vercel.app/" target="_blank" class="btn btn-orange btn-lg shadow-glow btn-play">
+                                <span data-trans="goToSite">Explore Project</span> <i class="fas fa-arrow-right ml-2"></i>
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
 
-        <div class="mb-5">
-            <h6 class="section-title text-center mb-4">Technology Stack</h6>
-            <div class="d-flex justify-content-center flex-wrap" style="gap: 15px;">
-                 <div class="tech-item" title="HTML5"><i class="fab fa-html5"></i></div>
-                 <div class="tech-item" title="CSS3"><i class="fab fa-css3-alt"></i></div>
-                 <div class="tech-item" title="JS"><i class="fab fa-js"></i></div>
-                 <div class="tech-item" title="TS"><i class="fas fa-code"></i></div>
-                 <div class="tech-item" title="React"><i class="fab fa-react"></i></div>
-                 <div class="tech-item" title="Vue"><i class="fab fa-vuejs"></i></div>
-                 <div class="tech-item" title="Node"><i class="fab fa-node-js"></i></div>
-                 <div class="tech-item" title="Python"><i class="fab fa-python"></i></div>
-                 <div class="tech-item" title="C#"><i class="fas fa-terminal"></i></div>
-                 <div class="tech-item" title="C++"><i class="fas fa-microchip"></i></div>
-                 <div class="tech-item" title="Git"><i class="fab fa-git-alt"></i></div>
+        <div class="mb-5 reveal-on-scroll">
+            <h6 class="section-title text-center mb-4">TECH STACK</h6>
+            <div class="tech-scroller">
+                <div class="tech-track">
+                    <div class="tech-item"><i class="fab fa-html5"></i></div>
+                    <div class="tech-item"><i class="fab fa-css3-alt"></i></div>
+                    <div class="tech-item"><i class="fab fa-js"></i></div>
+                    <div class="tech-item"><i class="fas fa-code"></i></div> <div class="tech-item"><i class="fab fa-react"></i></div>
+                    <div class="tech-item"><i class="fab fa-vuejs"></i></div>
+                    <div class="tech-item"><i class="fab fa-node-js"></i></div>
+                    <div class="tech-item"><i class="fab fa-python"></i></div>
+                    <div class="tech-item"><i class="fas fa-terminal"></i></div> <div class="tech-item"><i class="fas fa-microchip"></i></div> <div class="tech-item"><i class="fab fa-git-alt"></i></div>
+                    
+                    <div class="tech-item"><i class="fab fa-html5"></i></div>
+                    <div class="tech-item"><i class="fab fa-css3-alt"></i></div>
+                    <div class="tech-item"><i class="fab fa-js"></i></div>
+                    <div class="tech-item"><i class="fas fa-code"></i></div>
+                    <div class="tech-item"><i class="fab fa-react"></i></div>
+                    <div class="tech-item"><i class="fab fa-vuejs"></i></div>
+                    <div class="tech-item"><i class="fab fa-node-js"></i></div>
+                    <div class="tech-item"><i class="fab fa-python"></i></div>
+                    <div class="tech-item"><i class="fas fa-terminal"></i></div>
+                    <div class="tech-item"><i class="fas fa-microchip"></i></div>
+                    <div class="tech-item"><i class="fab fa-git-alt"></i></div>
+                </div>
             </div>
         </div>
 
@@ -181,6 +218,8 @@
         <i class="fas fa-arrow-up"></i>
     </button>
 
+    <script src="translations.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.0/vanilla-tilt.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
