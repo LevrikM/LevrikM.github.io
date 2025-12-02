@@ -17,7 +17,7 @@
     <div id="preloader">
         <div class="loader-content">
             <div class="spinner-grow text-orange mb-3" role="status" style="width: 3rem; height: 3rem;"></div>
-            <h5 class="font-weight-bold animate-pulse">Loading System...</h5>
+            <h5 data-trans="preloader" class="font-weight-bold animate-pulse">Loading System...</h5>
         </div>
     </div>
     <div class="background-glow"></div>
@@ -54,7 +54,7 @@
                         </button>
                     </li>
 
-                    <button data-trans="assistantTitle" id="assistant-toggle" class="assistant-btn ml-3">Assistant</button>
+                    <!-- <button data-trans="assistantTitle" id="assistant-toggle" class="assistant-btn ml-3">Assistant</button> -->
                     
                     <li class="nav-item ml-3">
                         <select id="languageSelect" class="custom-lang-select">
@@ -86,131 +86,191 @@
     </div>
 
     <div class="container">
+        <div class="d-flex align-items-center mb-5 mt-5 reveal-on-scroll">
+            <div style="flex: 1; height: 1px; background: rgba(255,255,255,0.1);"></div>
+            <h2 class="mx-4 font-weight-bold text-uppercase" style="letter-spacing: 3px; color: var(--text-main);">
+                <i class="fas fa-layer-group text-orange mr-2"></i> <span data-trans="myProjects"> MY PROJECTS</span>
+            </h2>
+            <div style="flex: 1; height: 1px; background: rgba(255,255,255,0.1);">
+        </div>
+    </div>
         
-        <div class="featured-project-wrapper mb-5 reveal-on-scroll">
-            <div class="rust-card-container">
-                <div class="rust-glow-effect"></div>
-                
-                <div class="card border-0 overflow-hidden text-white rust-card-body" data-tilt data-tilt-max="2" data-tilt-speed="5055" data-tilt-glare data-tilt-max-glare="0.04">
-                    <div class="row no-gutters h-100">
-                        <div class="col-lg-6 position-relative overflow-hidden preview-section">
-                            <div class="img-overlay"></div>
-                            <img src="https://rust-launcher.vercel.app/assets/launcher_preview.png" alt="Rust Launcher Interface" class="launcher-img">
+
+    <div class="featured-project-wrapper mb-5 reveal-on-scroll">
+        <div class="rust-card-container">
+            <div class="rust-glow-effect"></div>
+            <div id="rustShowcase" class="card border-0 overflow-hidden text-white rust-card-body" data-tilt data-tilt-max="2" data-tilt-speed="5055" data-tilt-glare data-tilt-max-glare="0.04">
+                <div class="row no-gutters h-100">
+                    <div class="col-lg-8 position-relative preview-section">
+                        <div class="img-overlay"></div>
+                        <img id="launcherImage" src="https://rust-launcher.vercel.app/assets/launcher_preview.png" alt="Rust Launcher Interface" class="launcher-img transition-active">
+                    </div>
+                    
+                    <div class="col-lg-4 p-4 d-flex flex-column justify-content-center position-relative z-index-1" style="background: rgba(0,0,0,0.4);">
+                        <div class="d-flex align-items-center mb-2">
+                            <span class="badge badge-danger mr-2">PRODUCT</span>
+                            <span data-trans="unofficialLauncher" class="text-uppercase text-muted small-spacing" style="font-size: 0.9rem;">CUSTOM LAUNCHER</span>
                         </div>
                         
-                        <div class="col-lg-6 p-4 p-lg-5 d-flex flex-column justify-content-center position-relative z-index-1">
-                            <div class="d-flex align-items-center mb-3">
-                                <span class="badge badge-danger mr-2">GAME UTILITY</span>
-                                <span data-trans="unofficialLauncher" class="text-uppercase text-muted small-spacing">Unofficial Launcher</span>
-                            </div>
-                            
-                            <h2 class="display-5 font-weight-bold mb-3">
-                                RUST <span class="text-orange glitch-effect">LAUNCHER</span>
-                            </h2>
-                            
-                            <p data-trans="rustLauncherDescription" class="text-secondary mb-4 description-text">
-                                Custom client for the game Rust. Enhanced performance, quick access to modded servers, and a user-friendly interface.
+                        <h3 class="font-weight-bold mb-2">
+                            RUST <span class="text-orange glitch-effect">LAUNCHER</span>
+                        </h3>
+                        
+                        <div id="featureDescriptionContainer" class="mb-3" style="min-height: 60px;">
+                            <p id="launcherDescriptionText" data-trans="rustLauncherDescription" class="text-secondary description-text transition-active small">
+                                Custom client for the game Rust. Enhanced performance and user-friendly interface.
                             </p>
-
-                            <div class="features-grid mb-4">
-                                <div class="feature-item">
-                                    <i class="fas fa-bolt text-orange"></i>
-                                    <span>Fast Load</span>
-                                </div>
-                                <div class="feature-item">
-                                    <i class="fas fa-shield-alt text-orange"></i>
-                                    <span>Secure</span>
-                                </div>
-                                <div class="feature-item">
-                                    <i class="fas fa-memory text-orange"></i>
-                                    <span>Low RAM</span>
-                                </div>
-                            </div>
-
-                            <a href="https://rust-launcher.vercel.app/" target="_blank" class="btn btn-orange btn-lg shadow-glow btn-play">
-                                <span data-trans="goToSite">Explore Project</span> <i class="fas fa-arrow-right ml-2"></i>
-                            </a>
                         </div>
+
+                        <div class="features-grid mb-4">
+                            <div class="feature-item active" data-feature="default"><i class="fas fa-rocket text-orange"></i></div>
+                            <div class="feature-item" data-feature="fastLoad"><i class="fas fa-bolt text-orange"></i></div>
+                            <div class="feature-item" data-feature="secure"><i class="fas fa-shield-alt text-orange"></i></div>
+                            <div class="feature-item" data-feature="optimization"><i class="fas fa-memory text-orange"></i></div>
+                        </div>
+
+                        <a href="https://rust-launcher.vercel.app/" target="_blank" class="btn btn-orange shadow-glow btn-play">
+                            <span data-trans="goToSite">Open</span> <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
 
-        <div class="mb-5 reveal-on-scroll">
-            <h6 class="section-title text-center mb-4">TECH STACK</h6>
-            <div class="tech-scroller">
-                <div class="tech-track">
-                    <div class="tech-item"><i class="fab fa-html5"></i></div>
-                    <div class="tech-item"><i class="fab fa-css3-alt"></i></div>
-                    <div class="tech-item"><i class="fab fa-js"></i></div>
-                    <div class="tech-item"><i class="fas fa-code"></i></div> <div class="tech-item"><i class="fab fa-react"></i></div>
-                    <div class="tech-item"><i class="fab fa-vuejs"></i></div>
-                    <div class="tech-item"><i class="fab fa-node-js"></i></div>
-                    <div class="tech-item"><i class="fab fa-python"></i></div>
-                    <div class="tech-item"><i class="fas fa-terminal"></i></div> <div class="tech-item"><i class="fas fa-microchip"></i></div> <div class="tech-item"><i class="fab fa-git-alt"></i></div>
-                    
-                    <div class="tech-item"><i class="fab fa-html5"></i></div>
-                    <div class="tech-item"><i class="fab fa-css3-alt"></i></div>
-                    <div class="tech-item"><i class="fab fa-js"></i></div>
-                    <div class="tech-item"><i class="fas fa-code"></i></div>
-                    <div class="tech-item"><i class="fab fa-react"></i></div>
-                    <div class="tech-item"><i class="fab fa-vuejs"></i></div>
-                    <div class="tech-item"><i class="fab fa-node-js"></i></div>
-                    <div class="tech-item"><i class="fab fa-python"></i></div>
-                    <div class="tech-item"><i class="fas fa-terminal"></i></div>
-                    <div class="tech-item"><i class="fas fa-microchip"></i></div>
-                    <div class="tech-item"><i class="fab fa-git-alt"></i></div>
+    <div class="featured-project-wrapper mb-5 reveal-on-scroll">
+        <div class="rust-card-container">
+            <div class="rust-glow-effect stats-glow"></div>
+            
+            <div class="card border-0 overflow-hidden text-white rust-card-body" data-tilt data-tilt-max="2" data-tilt-speed="5055" data-tilt-glare data-tilt-max-glare="0.04">
+                <div class="row no-gutters h-100">
+                    <div class="col-lg-4 order-2 order-lg-1 p-4 d-flex flex-column justify-content-center position-relative z-index-1" style="background: rgba(0,0,0,0.4);">
+                        <div class="d-flex align-items-center mb-2">
+                            <span class="badge badge-primary mr-2">WEB APP</span>
+                            <span class="text-uppercase text-muted small-spacing" style="font-size: 0.9rem;">ANALYTICS TOOL</span>
+                        </div>
+                        
+                        <h3 class="font-weight-bold mb-2">
+                            RUST <span class="text-blue glitch-effect" data-trans="rustStatsTitle">STATS</span>
+                        </h3>
+                        
+                        <p data-trans="rustStatsDescription" class="text-secondary mb-3 description-text small">
+                            Comprehensive player analytics. Track progress, K/D history, and get AI insights.
+                        </p>
+
+                        <div class="features-grid mb-4">
+                            <div class="feature-item"><i class="fas fa-chart-line text-blue"></i></div>
+                            <div class="feature-item"><i class="fas fa-history text-blue"></i></div>
+                            <div class="feature-item"><i class="fas fa-users text-blue"></i></div>
+                        </div>
+
+                        <a href="https://rust-stats.vercel.app/" target="_blank" class="btn btn-blue shadow-glow btn-play">
+                            <span data-trans="goToSite">Open</span> <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+
+                    <div class="col-lg-8 order-1 order-lg-2 position-relative preview-section">
+                        <div class="img-overlay"></div>
+                        <img src="./assets/rust-stats_preview.png" alt="Rust Stats Interface" class="launcher-img">
+                    </div>
                 </div>
             </div>
         </div>
-
-        <hr class="glass-divider my-5">
-
-        <h2 id="publicRepOnGitHub" class="section-heading text-center mb-5">Public Repositories</h2>
-        
-        <div id="loadingSpinner" class="text-center">
-            <div class="spinner-grow text-orange" role="status"></div>
-            <p class="mt-2 text-muted">Accessing GitHub API...</p>
-        </div>
-        
-        <div id="repos" class="row"></div>
-        
-        <div id="repositoryDetails"></div>
-        
-        <div class="text-center mt-5 mb-5">
-            <button id="loadMoreButton" class="btn btn-outline-primary btn-lg rounded-pill px-5">
-                Load More
-            </button>
-        </div>
-
-        <h6 class="section-title text-center mb-4" data-trans="myStatistics">Statistics</h6>
-        <div class="row">
-            <div class="col-md-12 mb-4">
-                <div class="glass-card p-2 stats-container">
-                    <iframe src="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=LevrikM&theme=ayu_mirage&bg_color=00000000&hide_border=true" frameborder="0" scrolling="no" width="100%" height="200"></iframe>
-                </div>
-            </div>
-            <div class="col-md-6 mb-4">
-                <div class="glass-card p-2">
-                    <iframe src="https://github-profile-summary-cards.vercel.app/api/cards/repos-per-language?username=LevrikM&theme=ayu_mirage&bg_color=00000000&hide_border=true" frameborder="0" scrolling="no" width="100%" height="200"></iframe>
-                </div>
-            </div>
-            <div class="col-md-6 mb-4">
-                <div class="glass-card p-2">
-                    <iframe src="https://github-profile-summary-cards.vercel.app/api/cards/most-commit-language?username=LevrikM&theme=ayu_mirage&bg_color=00000000&hide_border=true" frameborder="0" scrolling="no" width="100%" height="200"></iframe>
-                </div>
-            </div>
-        </div>
-
     </div>
     
+    <div class="mb-5 reveal-on-scroll">
+        <div class="container">
+        <div class="d-flex align-items-center mb-5 mt-5 reveal-on-scroll">
+            <div style="flex: 1; height: 1px; background: rgba(255,255,255,0.1);"></div>
+            <h2 class="mx-4 font-weight-bold text-uppercase" style="letter-spacing: 3px; color: var(--text-main);">
+                <i class="fab fa-dev text-orange mr-2"></i> TECH STUCK
+            </h2>
+            <div style="flex: 1; height: 1px; background: rgba(255,255,255,0.1);"> </div>
+        </div>
+        <div class="tech-scroller">
+            <div class="tech-track">
+                <div class="tech-item"><i class="fab fa-html5"></i></div>
+                <div class="tech-item"><i class="fab fa-css3-alt"></i></div>
+                <div class="tech-item"><i class="fab fa-js"></i></div>
+                <div class="tech-item"><i class="fas fa-code"></i></div> <div class="tech-item"><i class="fab fa-react"></i></div>
+                <div class="tech-item"><i class="fab fa-vuejs"></i></div>
+                <div class="tech-item"><i class="fab fa-node-js"></i></div>
+                <div class="tech-item"><i class="fab fa-python"></i></div>
+                <div class="tech-item"><i class="fas fa-terminal"></i></div> <div class="tech-item"><i class="fas fa-microchip"></i></div> <div class="tech-item"><i class="fab fa-git-alt"></i></div>
+                
+                <div class="tech-item"><i class="fab fa-html5"></i></div>
+                <div class="tech-item"><i class="fab fa-css3-alt"></i></div>
+                <div class="tech-item"><i class="fab fa-js"></i></div>
+                <div class="tech-item"><i class="fas fa-code"></i></div>
+                <div class="tech-item"><i class="fab fa-react"></i></div>
+                <div class="tech-item"><i class="fab fa-vuejs"></i></div>
+                <div class="tech-item"><i class="fab fa-node-js"></i></div>
+                <div class="tech-item"><i class="fab fa-python"></i></div>
+                <div class="tech-item"><i class="fas fa-terminal"></i></div>
+                <div class="tech-item"><i class="fas fa-microchip"></i></div>
+                <div class="tech-item"><i class="fab fa-git-alt"></i></div>
+            </div>
+        </div>
+    </div>
+
+    <hr class="glass-divider my-5">
+    <div class="d-flex align-items-center mb-5 mt-5 reveal-on-scroll">
+            <div style="flex: 1; height: 1px; background: rgba(255,255,255,0.1);"></div>
+            <h2 class="mx-4 font-weight-bold text-uppercase" style="letter-spacing: 3px; color: var(--text-main);">
+                <i class="fab fa-github text-orange mr-2"></i> <span id="publicRepOnGitHub" >TECH STUCK</span>
+            </h2>
+            <div style="flex: 1; height: 1px; background: rgba(255,255,255,0.1);"> </div>
+    </div>
+    
+    <div id="loadingSpinner" class="text-center">
+        <div class="spinner-grow text-orange" role="status"></div>
+        <p class="mt-2 text-muted">Accessing GitHub API...</p>
+    </div>
+    
+    <div id="repos" class="row"></div>
+    
+    <div id="repositoryDetails"></div>
+    
+    <div class="text-center mt-5 mb-5">
+        <button id="loadMoreButton" class="btn btn-outline-primary btn-lg rounded-pill px-5">
+            Load More
+        </button>
+    </div>
+
+    <div class="d-flex align-items-center mb-5 mt-5 reveal-on-scroll">
+            <div style="flex: 1; height: 1px; background: rgba(255,255,255,0.1);"></div>
+            <h2 class="mx-4 font-weight-bold text-uppercase" style="letter-spacing: 3px; color: var(--text-main);">
+                <i class="fas fa-chart-simple text-orange mr-2"></i> <span data-trans="myStatistics">TECH STUCK</span>
+            </h2>
+            <div style="flex: 1; height: 1px; background: rgba(255,255,255,0.1);"> </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12 mb-4">
+            <div class="glass-card p-2 stats-container">
+                <iframe src="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=LevrikM&theme=ayu_mirage&bg_color=00000000&hide_border=true" frameborder="0" scrolling="no" width="100%" height="200"></iframe>
+            </div>
+        </div>
+        <div class="col-md-6 mb-4">
+            <div class="glass-card p-2">
+                <iframe src="https://github-profile-summary-cards.vercel.app/api/cards/repos-per-language?username=LevrikM&theme=ayu_mirage&bg_color=00000000&hide_border=true" frameborder="0" scrolling="no" width="100%" height="200"></iframe>
+            </div>
+        </div>
+        <div class="col-md-6 mb-4">
+            <div class="glass-card p-2">
+                <iframe src="https://github-profile-summary-cards.vercel.app/api/cards/most-commit-language?username=LevrikM&theme=ayu_mirage&bg_color=00000000&hide_border=true" frameborder="0" scrolling="no" width="100%" height="200"></iframe>
+            </div>
+        </div>
+    </div>
+
+    </div>
+    <div style="flex: 1; height: 1px; background: rgba(255,255,255,0.1);"></div>
     <footer class="glass-footer mt-5">
         <div class="container text-center py-4">
             <div class="d-flex justify-content-center mb-3">
                 <a class="social-btn" href="https://t.me/xwkwx" target="_blank"><i class="fab fa-telegram"></i></a>
                 <a class="social-btn ml-3" href="mailto:levroemail@gmail.com"><i class="fas fa-envelope"></i></a>
             </div>
-            <p class="text-muted mb-0">&copy; <script>document.write(new Date().getFullYear())</script> LevrikM</p>
+            <p class="text-muted mb-0">LevrikM &copy; <script>document.write(new Date().getFullYear())</script></p>
         </div>
     </footer>
 

@@ -2,6 +2,7 @@ var translations = {
     en: {
         name: 'Krasnoboky Mykhailo',
         whoIAM: 'Software Engineer with a foundation from Zhytomyr Polytechnic State University and practical training from IT-STEP Academy.',
+        myProjects: 'My Projects',
         loadMore: 'Load More',
         publicRepOnGitHub: 'Public repositories on GitHub',
         portfolioTitle: "LevrikM | Portfolio",
@@ -30,13 +31,23 @@ var translations = {
         learning: "Learning",
         rustLauncherDescription: "Custom client for launching the game Rust. Enhanced performance, quick access to settings, and a user-friendly interface.",
         goToSite: "Explore Project",
-        unofficialLauncher: "Unofficial Launcher",
+        // unofficialLauncher: "Unofficial Launcher",
         loadingReadme: "Loading README...",
-        noReadme: "No README.md found for this repository."
+        noReadme: "No README.md found for this repository.",
+
+        // RUST STATS
+        rustStatsTitle: "STATS",
+        rustStatsDescription: "Comprehensive player analytics. Track progress, K/D history, and get AI insights.",
+        // rsFeature1: "Analytics",
+        // rsFeature2: "History",
+        // rsFeature3: "Compare",
+
+        preloader: "LOADING SYSTEM...",
     },
     ua: {
         name: 'Краснобокий Михайло',
         whoIAM: 'Програміст з основами з Житомирського політехнічного університету та практичною підготовкою в IT-STEP Academy.',
+        myProjects: 'Мої проєкти',
         loadMore: 'Завантажити ще',
         publicRepOnGitHub: 'Публічні репозиторії на GitHub',
         portfolioTitle: "LevrikM | Портфоліо",
@@ -65,13 +76,23 @@ var translations = {
         learning: "Навчання",
         rustLauncherDescription: "Кастомний клієнт для запуску гри Rust. Покращена продуктивність, швидкий доступ до налаштувань та зручний інтерфейс.",
         goToSite: "Перейти на проєкт",
-        unofficialLauncher: "Кастомний лаунчер",
+        // unofficialLauncher: "Кастомний лаунчер",
         loadingReadme: "Завантаження README...",
-        noReadme: "README.md не знайдено."
+        noReadme: "README.md не знайдено.",
+
+        // RUST STATS
+        rustStatsTitle: "STATS",
+        rustStatsDescription: "Детальна аналітика гравців. Відстежуй прогрес, історію K/D та отримуй огляд від AI.",
+        // rsFeature1: "Аналітика",
+        // rsFeature2: "Історія",
+        // rsFeature3: "Порівняння",
+
+        preloader: "ЗАВАНТАЖЕННЯ СИСТЕМИ...",
     },
     ru: {
         name: 'Краснобокий Михаил',
         whoIAM: 'Программист с основами из Житомирского политехнического университета и практической подготовкой в IT-STEP Academy.',
+        myProjects: 'Мои проекты',
         loadMore: 'Загрузить еще',
         publicRepOnGitHub: 'Публичные репозитории на GitHub',
         portfolioTitle: "LevrikM | Портфолио",
@@ -100,8 +121,17 @@ var translations = {
         learning: "Обучение",
         rustLauncherDescription: "Кастомный клиент для запуска игры Rust. Улучшенная производительность, быстрый доступ к настройкам и удобный интерфейс.",
         goToSite: "Перейти на проект",
-        unofficialLauncher: "Кастомный лаунчер",
+        // unofficialLauncher: "Кастомный лаунчер",
         loadingReadme: "Загрузка README...",
-        noReadme: "README.md не найден."
+        noReadme: "README.md не найден.",
+
+        // RUST STATS
+        rustStatsTitle: "STATS",
+        rustStatsDescription: "Подробная аналитика игроков и данные серверов. Отслеживай прогресс, историю K/D и получай обзор от AI.",
+        // rsFeature1: "Аналитика",
+        // rsFeature2: "История",
+        // rsFeature3: "Сравнение",
+
+        preloader: "ЗАГРУЗКА СИСТЕМЫ...",
     }
 };
