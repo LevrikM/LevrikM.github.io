@@ -45,9 +45,6 @@ var translations = {
 
         // FINANCE STATS
         finStatsDescription: "Personal finance tracker. Manage income, expenses, and visualize your financial health with interactive charts.",
-        fsFeature1: "Budgeting",
-        fsFeature2: "Savings",
-        fsFeature3: "Reports",
 
 
         preloader: "LOADING SYSTEM...",
@@ -98,9 +95,6 @@ var translations = {
 
         // FINANCE STATS
         finStatsDescription: "Трекер особистих фінансів. Керуй доходами, витратами та візуалізуй фінансовий стан за допомогою графіків.",
-        fsFeature1: "Бюджет",
-        fsFeature2: "Заощадження",
-        fsFeature3: "Звіти",
 
         preloader: "ЗАВАНТАЖЕННЯ СИСТЕМИ...",
     },
@@ -149,9 +143,6 @@ var translations = {
 
         // FINANCE STATS
         finStatsDescription: "Трекер личных финансов. Управляй доходами, расходами и визуализируй финансовое состояние с помощью графиков.",
-        fsFeature1: "Бюджет",
-        fsFeature2: "Сбережения",
-        fsFeature3: "Отчеты",
 
         preloader: "ЗАГРУЗКА СИСТЕМЫ...",
     }
