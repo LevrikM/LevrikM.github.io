@@ -43,8 +43,8 @@ var translations = {
         // rsFeature3: "Compare",
 
 
-        // FINANCE STATS
-        finStatsDescription: "Personal finance tracker. Manage income, expenses, and visualize your financial health with interactive charts.",
+        // MY DEV HUB (REPLACED FINANCE)
+        myDevHubDescription: "Local development hub. Auto-scan for projects, run npm/cargo scripts with one click, and manage git status instantly.",
 
 
         preloader: "LOADING SYSTEM...",
@@ -93,8 +93,8 @@ var translations = {
         // rsFeature2: "Історія",
         // rsFeature3: "Порівняння",
 
-        // FINANCE STATS
-        finStatsDescription: "Трекер особистих фінансів. Керуй доходами, витратами та візуалізуй фінансовий стан за допомогою графіків.",
+        // MY DEV HUB
+        myDevHubDescription: "Локальний хаб розробника. Авто-сканування проєктів, запуск npm/cargo скриптів в один клік та контроль git статусу.",
 
         preloader: "ЗАВАНТАЖЕННЯ СИСТЕМИ...",
     },
@@ -141,8 +141,8 @@ var translations = {
         // rsFeature2: "История",
         // rsFeature3: "Сравнение",
 
-        // FINANCE STATS
-        finStatsDescription: "Трекер личных финансов. Управляй доходами, расходами и визуализируй финансовое состояние с помощью графиков.",
+        // MY DEV HUB
+        myDevHubDescription: "Локальный хаб разработчика. Авто-сканирование проектов, запуск npm/cargo скриптов в один клик и контроль git статуса.",
 
         preloader: "ЗАГРУЗКА СИСТЕМЫ...",
     }

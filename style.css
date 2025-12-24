@@ -555,38 +555,44 @@ body.loading-state {
     line-height: 1.5;
 }
 
-/* --- FINANCE STATS STYLES--- */
+/* --- MY DEV HUB STYLES --- */
 
-.finance-glow {
-    background: linear-gradient(45deg, #10b981, #34d399, #065f46);
+.purple-glow {
+    background: linear-gradient(45deg, #8b5cf6, #d946ef, #4c1d95);
 }
 
-.text-green {
-    color: #34d399;
+.text-purple {
+    color: #a78bfa;
 }
 
-.btn-green {
-    background-color: #10b981;
+.btn-purple {
+    background-color: #7c3aed;
     color: white;
     border: none;
     border-radius: 50px;
     padding: 10px 30px;
-}
-.btn-green:hover {
-    background-color: #059669;
-    color: white;
-    box-shadow: 0 0 20px rgba(16, 185, 129, 0.4);
+    transition: all 0.3s ease;
 }
 
-.feature-item i.text-green {
-    color: #34d399;
-}
-.feature-item:hover i.text-green {
-    color: #34d399 !important;
-    filter: drop-shadow(0 0 8px rgba(52, 211, 153, 0.6));
+.btn-purple:hover {
+    background-color: #5b21b6;
+    color: white;
+    box-shadow: 0 0 15px rgba(124, 58, 237, 0.4);
 }
 
-.badge-success {
-    background-color: #10b981;
+.badge-purple {
+    background-color: #7c3aed;
     color: white;
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-size: 0.7rem;
+    font-weight: 700;
+}
+
+.feature-item i.text-purple {
+    color: #a78bfa;
+}
+.feature-item:hover i.text-purple {
+    color: #a78bfa !important;
+    filter: drop-shadow(0 0 8px rgba(167, 139, 250, 0.6));
 }
