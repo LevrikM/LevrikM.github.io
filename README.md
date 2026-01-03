@@ -1,35 +1,63 @@
-# My Portfolio
+# 🚀 Modern Developer Portfolio | LevrikM
 
-This is a simple portfolio website showcasing my GitHub repositories, providing information about myself, and now even featuring a small built-in assistant.
+This is a portfolio website featuring a sleek **Glassmorphism** aesthetic and **Dark Mode** integration. The site dynamically fetches data from the GitHub API.
 
-## Table of Contents
-- [Introduction](#introduction)
-- [Features](#features)
-- [Usage](#usage)
-- [License](#license)
+---
 
-## Introduction
-This website serves as a personal portfolio for showcasing my GitHub repositories and providing a brief introduction about myself.  
-It includes a header with a navigation bar, an avatar image, a section displaying public repositories fetched from GitHub, and a footer with contact information.  
+## 🎨 Design & Visual Identity
 
-As an extra touch, the site also contains a lightweight **assistant panel** with notes, to-do list, code snippets, and quick links — everything stored locally in your browser.
+The interface is built on a high-contrast palette designed for a premium tech feel and optimal readability.
 
-## Features
-- Display of public repositories from GitHub API.
-- Load more button to fetch additional repositories.
-- Toggle dark mode functionality.
-- Responsive design for optimal viewing on different devices.
-- Ability to change page language.
-- Saves dark mode and language state.
-- 🆕 Built-in assistant for quick notes, todos, snippets, and shortcuts.
+### Color Palette
+| Element | Hex Code | Preview |
+| :--- | :--- | :--- |
+| **Primary Background** | `#0a0a0f` | ![#0a0a0f](https://placehold.co/15x15/0a0a0f/0a0a0f.png) |
+| **Secondary (Cards)** | `#111118` | ![#111118](https://placehold.co/15x15/111118/111118.png) |
+| **Accent Orange** | `#ff6b35` | ![#ff6b35](https://placehold.co/15x15/ff6b35/ff6b35.png) |
+| **Accent Blue** | `#4dabf7` | ![#4dabf7](https://placehold.co/15x15/4dabf7/4dabf7.png) |
+| **Accent Purple** | `#9775fa` | ![#9775fa](https://placehold.co/15x15/9775fa/9775fa.png) |
 
-## Usage
-You can visit [my portfolio page](https://levrikm.github.io/) or, to view the website locally, follow these steps:
-1. Clone the repository:  
-   git clone https://github.com/LevrikM/LevrikM.github.io.git
-2. Open the `index.html` file in a web browser.  
+**Typography:**
+* **Headings:** `Space Grotesk` — A modern, geometric sans-serif.
+* **System/Stats:** `JetBrains Mono` — For code snippets and technical data.
 
-## License
-Feel free to explore the code and customize it according to your requirements!
+---
 
-For any questions or inquiries, you can reach me via [Telegram](https://t.me/xwkwx) or email at [levroemail@gmail.com](mailto:levroemail@gmail.com).
+## ⚡ Key Features
+
+* **Infinite Tech Scroller:** A seamless, looping animation showcasing the full technology stack in a continuous track.
+* **Dynamic GitHub Integration:** Real-time repository fetching with smart statistics display. Stars and Forks only appear if their count is greater than zero.
+* **Mobile-First Navigation:** Includes a modern hamburger menu toggle for smooth navigation on mobile devices.
+* **Clean Project Showcases:** Featured projects like Rust Launcher and My Dev Hub are presented with high-quality images and a focus on product UI.
+* **Multi-Language Support:** Fully localized interface for English, Ukrainian, and Russian speakers.
+
+---
+
+## 🛠 Tech Stack
+
+* **Frontend:** HTML5, CSS3 (Custom Keyframe Animations), JavaScript/jQuery.
+* **Styling:** Bootstrap 4 & CSS Grid/Flexbox.
+* **API:** GitHub REST API for dynamic repository content.
+* **Libraries:** `Vanilla-tilt.js` for 3D card effects and `FontAwesome 6` for iconography.
+
+---
+
+## 🚀 Installation & Setup
+
+1.  **Clone the repository:**
+    ```bash
+    git clone https://github.com/LevrikM/LevrikM.github.io.git
+    ```
+2.  **Run locally:**
+    Simply open the `index.html` file in any modern web browser.
+
+---
+
+## 📬 Contact Information
+
+* **Telegram:** [@xwkwx](https://t.me/xwkwx)
+* **Email:** [levroemail@gmail.com](mailto:levroemail@gmail.com)
+* **GitHub:** [LevrikM](https://github.com/LevrikM)
+
+---
+*Developed by Krasnoboky Mykhailo*
