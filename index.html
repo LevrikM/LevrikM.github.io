@@ -1,281 +1,88 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="uk">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title data-trans="portfolioTitle">My portfolio | LevrikM</title>
-    <link rel="icon" type="image/png" href="assets/icon.ico">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <title>LevrikM | Gateway</title>
+    <link rel="icon" href="assets/icon.ico">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;500;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
-    <div id="preloader">
-        <div class="loader-content">
-            <div class="loader-orb"></div>
-            <div class="loader-text" data-trans="preloader">INITIALIZING...</div>
-        </div>
-    </div>
+    <div id="canvas-container"></div>
+    <div class="vignette"></div>
 
-    <div class="animated-bg">
-        <div class="bg-orb orb-1"></div>
-        <div class="bg-orb orb-2"></div>
-        <div class="bg-orb orb-3"></div>
-    </div>
-
-    <nav class="minimal-nav">
-        <div class="nav-container">
-            <div class="nav-logo">
-                <span class="logo-text">LM</span>
-            </div>
-            
-            <button class="mobile-menu-toggle" id="mobileMenuToggle">
-                <i class="fas fa-bars"></i>
+    <nav class="top-nav">
+        <div class="controls">
+            <button id="anim-toggle" class="nav-btn">
+                <span class="icon-play">❚❚</span>
             </button>
-
-            <div class="nav-links" id="navLinks">
-                <a href="https://github.com/LevrikM?tab=repositories" target="_blank" class="nav-link-item">
-                    <span data-trans="openRepositories">Repos</span>
-                </a>
-                <a href="https://github.com/LevrikM" target="_blank" class="nav-link-item">
-                    <span data-trans="goToProfile">Profile</span>
-                </a>
-                <button id="toggleDarkModeButton" class="nav-link-item theme-toggle">
-                    <i id="toggleDarkModeIcon" class="fas fa-moon"></i>
-                </button>
-                <select id="languageSelect" class="nav-lang-select">
-                    <option value="en">EN</option>
-                    <option value="ua">UA</option>
-                    <option value="ru">RU</option>
-                </select>
-            </div>
+        </div>
+        <div class="lang-switch">
+            <button class="lang-btn" data-lang="ua">UA</button>
+            <button class="lang-btn" data-lang="en">EN</button>
+            <button class="lang-btn" data-lang="ru">RU</button>
         </div>
     </nav>
 
-    <section class="hero-new">
-        <div class="hero-container">
-            <div class="hero-avatar-frame">
-                <div class="avatar-ring"></div>
-                <div class="avatar-ring ring-2"></div>
-                <img class="hero-avatar" src="https://avatars.githubusercontent.com/u/48616642?v=4" alt="Profile">
-                <div class="status-indicator">
-                    <span class="status-dot"></span>
-                    <span class="status-text">ACTIVE</span>
-                </div>
-            </div>
-            
-            <div class="hero-text">
-                <h1 class="hero-name" id="namePlaceholder">Krasnoboky Mykhailo</h1>
-                <div class="hero-username" id="login">
-                    <i class="fab fa-github"></i>
-                    <span></span>
-                </div>
-                <div class="hero-tagline">
-                    <span class="tagline-prefix">//</span>
-                    <span data-trans="whoIAM" class="tagline-text">Student of Zhytomyr Polytechnic State University, student of IT-STEP Computer Academy.</span>
-                </div>
-            </div>
+    <main class="container">
+        <header>
+            <h1 data-key="header_title">LEVRIKM</h1>
+            <p class="subtitle" data-key="header_subtitle">DIGITAL GATEWAY</p>
+        </header>
 
-            <div class="hero-stats">
-                <div class="stat-mini">
-                    <div class="stat-value" id="repoCount">-</div>
-                    <div class="stat-label">Repositories</div>
+        <div class="gateway-grid">
+            <a href="portfolio/" class="card portfolio-main warp-link">
+                <div class="content">
+                    <span class="tag" data-key="port_tag">MAIN PROFILE</span>
+                    <h2 data-key="port_title">Portfolio</h2>
+                    <p class="desc" data-key="port_desc">
+                        View full tech stack, commercial experience, and information about me.
+                    </p>
                 </div>
-                <div class="stat-mini">
-                    <div class="stat-value" id="starCount">-</div>
-                    <div class="stat-label">Stars</div>
-                </div>
-            </div>
-        </div>
-    </section>
+                <div class="arrow">➜</div>
+            </a>
 
-    <section class="projects-section">
-        <div class="section-label">
-            <span class="label-number">01</span>
-            <span class="label-text" data-trans="myProjects">Featured Projects</span>
-        </div>
-
-        <div class="projects-showcase">
-            <div class="project-card featured-card" data-project="rust-launcher">
-                <div class="project-visual">
-                    <div class="project-gradient gradient-orange"></div>
-                    <img src="https://rust-launcher.vercel.app/assets/launcher_preview.png" alt="Rust Launcher" class="project-image">
-                </div>
-                <div class="project-info">
-                    <div class="project-meta">
-                        <span class="project-type">Desktop App</span>
+            <div class="projects-col">
+                <h3 class="col-title" data-key="projects_title">MY PROJECTS</h3>
+                
+                <a href="https://rust-launcher.vercel.app/" class="card project-card rust-card warp-link">
+                    <div class="p-content">
+                        <span data-key="p1_type">Desktop App</span>
+                        <h3>Rust Launcher</h3>
                     </div>
-                    <h3 class="project-title">Rust Launcher</h3>
-                    <p class="project-desc" data-trans="rustLauncherDescription">Custom client for the game Rust. Enhanced performance and user-friendly interface.</p>
-                    <a href="https://rust-launcher.vercel.app/" target="_blank" class="project-link">
-                        <span>View Project</span>
-                        <i class="fas fa-arrow-up-right"></i>
-                    </a>
-                </div>
-            </div>
-
-            <div class="project-card featured-card" data-project="rust-stats">
-                <div class="project-visual">
-                    <div class="project-gradient gradient-blue"></div>
-                    <img src="./assets/rust-stats_preview.png" alt="Rust Stats" class="project-image">
-                </div>
-                <div class="project-info">
-                    <div class="project-meta">
-                        <span class="project-type">Web App</span>
-                    </div>
-                    <h3 class="project-title">Rust Stats</h3>
-                    <p class="project-desc" data-trans="rustStatsDescription">Comprehensive player analytics. Track progress, K/D history, and get AI insights.</p>
-                    <a href="https://ruststats.vercel.app/" target="_blank" class="project-link">
-                        <span>View Project</span>
-                        <i class="fas fa-arrow-up-right"></i>
-                    </a>
-                </div>
-            </div>
-
-            <div class="project-card featured-card" data-project="devhub">
-                <div class="project-visual">
-                    <div class="project-gradient gradient-purple"></div>
-                    <img src="https://mydevhub.vercel.app/assets/app-preview.png" alt="DevHub" class="project-image">
-                </div>
-                <div class="project-info">
-                    <div class="project-meta">
-                        <span class="project-type">Desktop App</span>
-                    </div>
-                    <h3 class="project-title">My Dev Hub</h3>
-                    <p class="project-desc" data-trans="myDevHubDescription">Local development hub. Auto-scan for projects, run scripts, and manage git status.</p>
-                    <a href="https://mydevhub.vercel.app/" target="_blank" class="project-link">
-                        <span>View Project</span>
-                        <i class="fas fa-arrow-up-right"></i>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="tech-section">
-    <div class="section-label">
-        <span class="label-number">02</span>
-        <span class="label-text">Tech Stack</span>
-    </div>
-    <div class="tech-scroller">
-        <div class="tech-track">
-            <div class="tech-item"><i class="fab fa-html5"></i></div>
-            <div class="tech-item"><i class="fab fa-css3-alt"></i></div>
-            <div class="tech-item"><i class="fab fa-js"></i></div>
-            <div class="tech-item"><i class="fas fa-code"></i></div>
-            <div class="tech-item"><i class="fab fa-react"></i></div>
-            <div class="tech-item"><i class="fab fa-vuejs"></i></div>
-            <div class="tech-item"><i class="fab fa-node-js"></i></div>
-            <div class="tech-item"><i class="fab fa-python"></i></div>
-            <div class="tech-item"><i class="fas fa-terminal"></i></div>
-            <div class="tech-item"><i class="fas fa-microchip"></i></div>
-            <div class="tech-item"><i class="fab fa-git-alt"></i></div>
-            <div class="tech-item"><i class="fab fa-html5"></i></div>
-            <div class="tech-item"><i class="fab fa-css3-alt"></i></div>
-            <div class="tech-item"><i class="fab fa-js"></i></div>
-            <div class="tech-item"><i class="fas fa-code"></i></div>
-            <div class="tech-item"><i class="fab fa-react"></i></div>
-            <div class="tech-item"><i class="fab fa-vuejs"></i></div>
-            <div class="tech-item"><i class="fab fa-node-js"></i></div>
-            <div class="tech-item"><i class="fab fa-python"></i></div>
-            <div class="tech-item"><i class="fas fa-terminal"></i></div>
-            <div class="tech-item"><i class="fas fa-microchip"></i></div>
-            <div class="tech-item"><i class="fab fa-git-alt"></i></div>
-        </div>
-    </div>
-</section>
-    <section class="repos-section">
-        <div class="section-label">
-            <span class="label-number">03</span>
-            <span class="label-text" id="publicRepOnGitHub" data-trans="publicRepOnGitHub">Repositories</span>
-        </div>
-
-        <div id="loadingSpinner" class="repo-loader">
-            <div class="loader-dots">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-            <p>Loading repositories...</p>
-        </div>
-
-        <div id="repos" class="repos-masonry"></div>
-        
-        <div id="repositoryDetails" class="repo-detail-modal"></div>
-
-        <div class="load-more-wrapper">
-            <button id="loadMoreButton" class="load-more-btn">
-                <span data-trans="loadMore">Load More</span>
-                <i class="fas fa-chevron-down"></i>
-            </button>
-        </div>
-    </section>
-
-    <section class="stats-section">
-        <div class="section-label">
-            <span class="label-number">04</span>
-            <span class="label-text" data-trans="myStatistics">Statistics</span>
-        </div>
-
-        <div class="stats-dashboard">
-            <div class="dashboard-card main-card">
-                <div class="card-header">
-                    <h3>Profile Overview</h3>
-                </div>
-                <div class="card-content">
-                    <iframe src="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=LevrikM&theme=github_dark&bg_color=00000000&hide_border=true" frameborder="0" scrolling="no" width="100%" height="200"></iframe>
-                </div>
-            </div>
-
-            <div class="dashboard-card">
-                <div class="card-header">
-                    <h3>Languages</h3>
-                </div>
-                <div class="card-content">
-                    <iframe src="https://github-profile-summary-cards.vercel.app/api/cards/repos-per-language?username=LevrikM&theme=github_dark&bg_color=00000000&hide_border=true" frameborder="0" scrolling="no" width="100%" height="200"></iframe>
-                </div>
-            </div>
-
-            <div class="dashboard-card">
-                <div class="card-header">
-                    <h3>Commit Activity</h3>
-                </div>
-                <div class="card-content">
-                    <iframe src="https://github-profile-summary-cards.vercel.app/api/cards/most-commit-language?username=LevrikM&theme=github_dark&bg_color=00000000&hide_border=true" frameborder="0" scrolling="no" width="100%" height="200"></iframe>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <footer class="site-footer">
-        <div class="footer-content">
-            <div class="footer-links">
-                <a href="https://t.me/xwkwx" target="_blank" class="footer-link">
-                    <i class="fab fa-telegram"></i>
+                    <div class="status-dot"></div>
                 </a>
-                <a href="mailto:levroemail@gmail.com" class="footer-link">
-                    <i class="fas fa-envelope"></i>
+
+                <a href="https://ruststats.vercel.app/" class="card project-card stats-card warp-link">
+                    <div class="p-content">
+                        <span data-key="p2_type">Web Analytics</span>
+                        <h3>Rust Stats</h3>
+                    </div>
+                    <div class="status-dot"></div>
+                </a>
+
+                <a href="https://mydevhub.vercel.app/" class="card project-card hub-card warp-link">
+                    <div class="p-content">
+                        <span data-key="p3_type">Desktop App</span>
+                        <h3>MyDevHub</h3>
+                    </div>
+                    <div class="status-dot"></div>
                 </a>
             </div>
-            <div class="footer-text">
-                <span>LevrikM</span>
-                <span class="footer-year"><script>document.write(new Date().getFullYear())</script></span>
-            </div>
         </div>
+    </main>
+
+    <footer class="simple-footer">
+        LevrikM © <span id="year"></span>
     </footer>
 
-    <button id="scrollToTopBtn" class="scroll-top">
-        <i class="fas fa-arrow-up"></i>
-    </button>
+    <div class="transition-overlay"></div>
 
-    <script src="translations.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.0/vanilla-tilt.min.js"></script>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-    <script src="script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="main.js"></script>
 </body>
 </html>
