@@ -54,7 +54,7 @@ const translations = {
         projects_title: "МОЇ ПРОЄКТИ",
         p1_type: "Десктоп Додаток",
         p2_type: "Веб Аналітика",
-        p3_type: "Десктоп Додаток"
+        p3_type: "Веб Додаток"
     },
     en: {
         header_title: "LEVRIKM",
@@ -65,7 +65,7 @@ const translations = {
         projects_title: "MY PROJECTS",
         p1_type: "Desktop App",
         p2_type: "Web Analytics",
-        p3_type: "Desktop App"
+        p3_type: "Web App"
     },
     ru: {
         header_title: "LEVRIKM",
@@ -76,7 +76,7 @@ const translations = {
         projects_title: "МОИ ПРОЕКТЫ",
         p1_type: "Десктоп Приложение",
         p2_type: "Веб Аналитика",
-        p3_type: "Десктоп Приложение"
+        p3_type: "Веб Приложение"
     }
 };
 
