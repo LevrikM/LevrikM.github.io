@@ -343,7 +343,7 @@ document.querySelectorAll('.warp-link').forEach(link => {
         const uiElements = [
             document.querySelector('.container'),
             document.querySelector('.top-nav'),
-            document.querySelector('.simple-footer')
+            document.querySelector('.modern-footer')
         ];
         
         uiElements.forEach(el => {
